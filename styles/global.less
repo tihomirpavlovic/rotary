@@ -643,9 +643,14 @@ body {
         padding-top: 67%;
         width: 100%;
 
-        @media @tablet-s {
+        @media @tablet-l {
+            padding-top: 47%;
+        }
+
+        @media @laptop-s {
             padding-top: 31%;
         }
+
         img{
             .cropped_img;
         }
@@ -653,12 +658,16 @@ body {
     .hero_headline_wrap{
         position: absolute;
         max-width: 1503px;
-        padding: 0 40px;
+        padding: 0 17px;
         box-sizing: border-box;
         margin: auto;
         width: 100%;
         left: 50%;
         transform: translateX(-50%);
+
+        @media @tablet-s {
+            padding: 0 40px;
+        }
 
         h2{
             font-size: 32px;
