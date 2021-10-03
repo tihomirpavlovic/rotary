@@ -2,28 +2,46 @@
     padding-top: 172px;
     
     .template_about_content{
-        margin-top: 119px;
-        margin-bottom: 140px;
+        margin-top: 80px;
+        margin-bottom: 80px;
+
+        @media @laptop-s {
+            margin-top: 119px;
+            margin-bottom: 140px;
+        }
 
         .first_section{
             h2{
                 color: #032549;
-                font-size: 52px;
-                font-family: @fontB;
-                letter-spacing: 1px;
-                margin-bottom: 70px;
+                font-family: @fontEB;
+                margin-bottom: 30px;
                 box-sizing: border-box;
+                letter-spacing: 0.62px;
+                font-size: 32px;
+
+                @media @tablet-s {
+                    font-size: 52px;
+                    line-height: 50px;
+                    letter-spacing: 1px;
+                    margin-bottom: 40px;
+                }
+
+                @media @laptop-s {
+                    margin-bottom: 70px;
+                }
             }
 
             .first_section_content{
                 display: flex;
                 flex-wrap: wrap;
-                padding: 45px 0px;
                 box-sizing: border-box;
                 position: relative;
 
+                @media @laptop-s {
+                    padding: 45px 0px;
+                }
+
                 &:after{
-                    content: '';
                     width: 80%;
                     top: 0;
                     right: 0;
@@ -31,13 +49,22 @@
                     height: 100%;
                     z-index: 0;
                     border: 2px solid @color2;
+
+                    @media @laptop-s {
+                        content: '';
+                    }
                 }
 
-                .left{
-                    width: 30%;
+                .left {
+                    width: 100%;
                     position: relative;
                     z-index: 1;
-                    background-color: #Fff;
+                    max-width: 320px;
+
+                    @media @laptop-s {
+                        max-width: 100%;
+                        width: 30%;
+                    }
 
                     .image_holder{
                         position: relative;
@@ -50,9 +77,9 @@
                     }
                 }
 
-                .right{
-                    width: 70%;
-                    padding: 0 90px;
+                .right {
+                    margin-top: 30px;
+                    width: 100%;
                     box-sizing: border-box;
                     display: flex;
                     flex-direction: column;
@@ -61,24 +88,45 @@
                     z-index: 1;
                     // background-color: #Fff;
 
-                    p{
+                    @media @laptop-s {
+                        padding: 0 45px;
+                        width: 70%;
+                    }
+
+                    @media @desktop-l {
+                        padding: 0 90px;
+                    }
+
+                    p {
                         .text();
                         line-height: 1.4em;
                     }
 
-                    .author{
-                        text-align: right;
-                        margin-top: 77px;
+                    .author {
+                        margin-top: 50px;
 
-                        h3{
+                        @media @tablet-s {
+                            text-align: right;
+                        }
+
+                        @media @laptop-s {
+                            margin-top: 77px;
+                        }
+
+                        h3 {
                             color: @color1;
-                            font-size: 20px;
+                            font-size: 18px;
                             font-family: @fontB;
-                            letter-spacing: 1px;
+                            letter-spacing: 0.68px;
                             margin-bottom: 5px;
+
+                            @media @laptop-s {
+                                letter-spacing: 1px;
+                                font-size: 20px;
+                            }
                         }
     
-                        p{
+                        p {
                             .text();
                             font-size: 16px;
                             color: @color1;
@@ -89,14 +137,26 @@
         }
 
         .accordion{
-            margin-top: 120px;
+            margin-top: 80px;
+
+            @media @laptop-s {
+                margin-top: 120px;
+            }
 
             .single_accordion {
                 border-top: 1px solid #5C728A;
-                padding: 30px 40px;
+                padding: 20px 0;
                 box-sizing: border-box;
                 cursor: pointer;
                 .transition();
+
+                @media @laptop-s {
+                    padding: 30px 20px;
+                }
+
+                @media @desktop-l {
+                    padding: 30px 40px;
+                }
                 
                 &:last-child{
                     border-bottom: 1px solid #5C728A;
@@ -115,48 +175,64 @@
                 }
         
                 h3 {
-                  color: @color1;
-                  font-size: 30px;
-                  font-family: @fontB;
-                  position: relative;
+                    color: @color1;
+                    font-size: 24px;
+                    font-family: @fontB;
+                    position: relative;
+                    padding-right: 30px;
 
-        
-                  .opener {
-                    position: absolute;
-                    cursor: pointer;
-                    width: 24px;
-                    height: 24px;
-                    right: 0;
-                    top: 50%;
-                    transform: translateY(-50%);
-    
-        
-                    span {
-                      display: inline-block;
-                      height: 2px;
-                      background-color: @color2;
-                      width: 24px;
-                      position: absolute;
-                      top: 50%;
-        
-                      &:nth-of-type(2) {
-                        left: 50%;
-                        transform: translateX(-50%) rotate(90deg);
-                        .transition();
-                      }
+                    @media @laptop-s {
+                        font-size: 30px;
                     }
-                  }
+
+                    .opener {
+                        position: absolute;
+                        cursor: pointer;
+                        width: 20px;
+                        height: 20px;
+                        right: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+
+                        @media @laptop-s {
+                            width: 24px;
+                            height: 24px;
+                        }
+
+                        span {
+                            display: inline-block;
+                            height: 2px;
+                            background-color: @color2;
+                            width: 100%;
+                            position: absolute;
+                            top: 50%;
+
+                            &:nth-of-type(2) {
+                                left: 50%;
+                                transform: translateX(-50%) rotate(90deg);
+                                .transition();
+                            }
+                        }
+                    }
                 }
 
                 .question_content{
                     display: none;
                     flex-wrap: wrap;
-                    padding-top: 93px;
+                    padding-top: 44px;
                     padding-bottom: 44px;
                     box-sizing: border-box;
 
+                    @media @laptop-s {
+                        padding-top: 93px;
+                    }
+
                     .left{
-                        width: 40%;
+                        width: 100%;
+
+                        @media @laptop-s {
+                            width: 40%;
+                        }
 
                         .image_holder{
                             position: relative;
@@ -169,7 +245,6 @@
                         }
 
                         .image_caption{
-                            padding-left: 30px;
                             box-sizing: border-box;
                             position: relative;
                             font-family: @fontR;
@@ -178,6 +253,11 @@
                             font-style: italic;
                             margin-top: 17px;
                             line-height: 1.4em;
+                            padding-left: 15px;
+
+                            @media @laptop-s {
+                                padding-left: 30px;
+                            }
 
                             &:after{
                                 content: '';
@@ -186,25 +266,49 @@
                                 height: 100%;
                                 position: absolute;
                                 top: 0;
-                                left: 15px;
+                                left: 0;
+
+                                @media @laptop-s {
+                                    left: 15px;
+                                }
                             }
                         }
                     }
 
                     .right{
-                        width: 60%;
+                        width: 100%;
                         box-sizing: border-box;
-                        padding-left: 107px;
+                        margin-top: 30px;
 
-                        h2{
+                        @media @laptop-s {
+                            margin-top: 0;
+                            padding-left: 50px;
+                            width: 60%;
+                        }
+
+                        @media @desktop-l {
+                            padding-left: 107px;
+                        }
+
+                        h2 {
                             color: #032549;
-                            font-size: 40px;
+                            font-size: 27px;
                             font-family: @fontB;
-                            letter-spacing: 1px;
-                            margin-bottom: 25px;
+                            letter-spacing: 0.68px;
+                            margin-bottom: 15px;
+
+                            @media @tablet-s {
+                                letter-spacing: 1px;
+                                font-size: 30px;
+                                margin-bottom: 25px;
+                            }
+
+                            @media @laptop-s {
+                                font-size: 40px;
+                            }
                         }
     
-                        p{
+                        p {
                             .text();
                             font-size: 16px;
                         }
