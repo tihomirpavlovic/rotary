@@ -19,10 +19,21 @@
 
         .title {
             font-family: @fontEB;
-            .h3();
             text-align: center;
             color: #fff;
             margin-bottom: 36px;
+            font-size: 32px;
+            line-height: 32px;
+
+            @media @laptop-s {
+                font-size: 52px;
+                line-height: 50px;
+            }
+
+            @media @desktop-m {
+                font-size: 62px;
+                line-height: 60px;
+            }
 
             @media @tablet-s {
                 margin-bottom: 60px;
@@ -56,9 +67,16 @@
                 }
 
                 h5 {
-                    .h5();
+                    font-size:16px;
+                    line-height: 27px;
+                    letter-spacing: 0.89px;
                     font-family: @fontEB;
                     letter-spacing: 1px;
+
+                    @media @laptop-s{
+                        font-size:18px;
+                        letter-spacing: 1px;
+                    }
                 }
 
                 p {
@@ -104,7 +122,8 @@
 
                 .social_media_title {
                     font-family: @fontEB;
-                    .h4();
+                    font-size: 24px;
+                    line-height: 28.13px;
                     text-align: center;
                     width: 100%;
                     margin-bottom: 9px;
@@ -202,13 +221,15 @@
                     box-sizing: border-box;
                     border: none;
                     font-family: @fontSB;
-                    .p4();
+                    font-size: 16px;
+                    line-height: 18.75px;
                     color: #fff;
                     outline: none;
 
                     &::placeholder {
                         font-family: @fontSB;
-                        .p4();
+                        font-size: 16px;
+                        line-height: 18.75px;
                         color: #fff;
                     }
                 }
@@ -244,7 +265,8 @@
         border-top: solid 1px #fff;
         text-align: center;
         font-family: @fontR;
-        .p6();
+        font-size: 14px;
+        line-height: 16.41px;
 
         @media @tablet-s {
             padding-top: 36px;

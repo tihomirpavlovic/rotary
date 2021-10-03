@@ -68,6 +68,9 @@ get_header(); ?>
                     <div class="box_info">
                         <h3>Consultez notre <br> calendrier</h3>
                         <p>Pour ne rien manquer de nos prochaines activités ou événements!</p>
+                        <div class="button_holder">
+                            <a href="" class="button">COMMANDER</a>
+                        </div>
                     </div>
 
                     <div class="button_holder">

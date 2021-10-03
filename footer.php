@@ -7,6 +7,10 @@
             <div class="box_info">
                 <h3>Consultez notre <br> boutique en ligne</h3>
                 <p>Pour ne rien manquer de la grande vente annuelle du Spaghetti des Régates.</p>
+                
+                <div class="button_holder">
+                    <a href="" class="button">COMMANDER</a>
+                </div>
             </div>
             <div class="button_holder">
                 <a href="" class="button">COMMANDER</a>
