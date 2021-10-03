@@ -637,6 +637,19 @@ body {
     justify-self: center;
     align-items: center;
 
+    .logo {
+        position: absolute;
+        bottom: -20%;
+        right: 0;
+        z-index: 2;
+        width : 38%;
+        display: none;
+
+        @media @laptop-s {
+            display: block;
+        }
+    }
+
     .image_holder{
         position: relative;
         overflow: hidden;
