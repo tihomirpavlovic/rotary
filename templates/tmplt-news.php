@@ -18,21 +18,23 @@ get_header(); ?>
                 <h2>Nos nouvelles</h2>
             </div>
 
-            <div class="filter_wrap">
-                <div class="single_item">
-                    <p>
-                        Tous
-                    </p>
-                </div>
-                <div class="single_item">
-                    <p>
-                       Rotary Sallabery-de-Valleryfield 
-                    </p>
-                </div>
-                <div class="single_item">
-                    <p>
-                        Rotary International
-                    </p>
+            <div class="filters_holder">
+                <div class="filter_wrap">
+                    <div class="single_item">
+                        <p>
+                            Tous
+                        </p>
+                    </div>
+                    <div class="single_item">
+                        <p>
+                            Rotary Sallabery-de-Valleryfield
+                        </p>
+                    </div>
+                    <div class="single_item">
+                        <p>
+                            Rotary International
+                        </p>
+                    </div>
                 </div>
             </div>
 
