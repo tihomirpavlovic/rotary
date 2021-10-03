@@ -1,0 +1,20 @@
+.include-custom-font(@family: arial, @weight: normal, @style: normal) {
+    @font-face {
+        font-family: @family;
+        src:url('../fonts/@{family}.eot');
+        src:url('../fonts/@{family}.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/@{family}.woff') format('woff'),
+        url('../fonts/@{family}.ttf') format('truetype'),
+        url('../fonts/@{family}.svg#icon') format('svg');
+        font-weight: @weight;
+        font-style: @style;
+        font-display: swap;
+    }
+}
+.include-custom-font('ProximaNova-Bold');
+.include-custom-font('ProximaNova-Extrabld');
+.include-custom-font('ProximaNova-ExtrabldIt');
+.include-custom-font('ProximaNova-Semibold');
+.include-custom-font('ProximaNova-SemiboldIt');
+.include-custom-font('ProximaNovaA-Regular');
+.include-custom-font('ProximaNovaCond-Regular');

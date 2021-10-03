@@ -1,0 +1,168 @@
+.template_fundraising_wrap{
+    .template_fundraising_content{
+        margin-top: 119px;
+        margin-bottom: 165px;
+
+        .list_section{
+            background-color: #F4F4F4;
+            padding: 48px 90px 80px 90px;
+            box-sizing: border-box;
+            margin-bottom: 125px;
+
+            .list_section_content{
+                .single_item{
+                    margin-bottom: 47px;
+
+                    &:last-child{
+                        margin-bottom: 0px;
+                    }
+
+                    h3{
+                        color: #032549;
+                        font-size: 18px;
+                        font-family: @fontB;
+                        letter-spacing: 1px;
+                        line-height: 1.26em;
+
+                        &:before{
+                            content: '+';
+                            position: relative;
+                            color: #F6A71E;
+                        }
+                    }
+
+                    p{
+                        .text();
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+
+        .orange_box{
+            margin-bottom: 119px;
+        }
+
+        .activities_section{
+            h2{
+                color: #032549;
+                font-size: 52px;
+                font-family: @fontB;
+                letter-spacing: 1px;
+                margin-bottom: 75px;
+            }
+
+            p{
+                .text();
+            }
+
+            .single_activity{
+                padding-top: 95px;
+                padding-bottom: 95px;
+                border-top: 1px solid #5C728A;
+                display: flex;
+                flex-wrap: wrap;
+
+                &:last-child{
+                    border-bottom: 1px solid #5C728A;
+                }
+
+                .left{
+                    width: 40%;
+
+                    .single_activity_swiper{
+                        padding-bottom: 30px;
+
+                        .image_holder{
+                            position: relative;
+                            overflow: hidden;
+                            padding-top: 67%;
+
+                            img{
+                                .cropped_img();
+                            }
+                        }
+
+                        .swiper-pagination{
+                            bottom: 0px;
+
+                            .swiper-pagination-bullet{
+                                background: #979797;
+                                width: 10px;
+                                height: 10px;
+                                margin: 0 3px;
+                            }
+                            .swiper-pagination-bullet-active{
+                                background: #F6A71E;
+                            }
+                        }
+                    }
+                }
+
+                .right{
+                    width: 60%;
+                    padding-left: 87px;
+                    box-sizing: border-box;
+
+                    h3{
+                        color: #032549;
+                        font-size: 40px;
+                        font-family: @fontB;
+                        letter-spacing: 1px;
+                        margin-bottom: 15px;
+                    }
+
+                    .date{
+                        margin-bottom: 30px;
+                        font-size: 16px;
+                        color: #032549;
+                        font-family: @fontR;
+                    }
+
+                    p{
+                        .text();
+                        line-height: 1.4em;
+                        font-size: 16px;
+                    }
+                }
+
+            }
+        }
+
+        .past_fundriser{
+            margin-top: 115px;
+
+            h2{
+                color: #032549;
+                font-size: 52px;
+                font-family: @fontB;
+                letter-spacing: 1px;
+                margin-bottom: 93px;
+            }
+
+            .single_fundriser{
+                margin-bottom: 50px;
+
+                &:last-child{
+                    margin-bottom: 0px;
+                }
+
+                h3{
+                    color: #032549;
+                    font-size: 18px;
+                    font-family: @fontB;
+                    letter-spacing: 1px;
+                    line-height: 1.26em;
+                    margin-bottom: 10px;
+                }
+
+                p{
+                    .text();
+                    font-size: 16px;
+                    color: #032549;
+                }
+            }
+        }
+
+    }
+}

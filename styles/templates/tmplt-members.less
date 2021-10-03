@@ -1,0 +1,95 @@
+.template_members_wrap{
+    .template_members_content{
+        margin-top: 119px;
+        margin-bottom: 165px;
+        overflow: hidden;
+
+        .single_member_group{
+            margin-bottom: 50px;
+
+
+            &:last-child{
+                margin-bottom: 0px;
+            }
+
+            h2{
+                color: #032549;
+                font-size: 52px;
+                font-family: @fontB;
+                letter-spacing: 1px;
+                margin-bottom: 118px;
+                padding-left: 7px;
+                box-sizing: border-box;
+            }
+
+            .members_wrap{
+                display: flex;
+                flex-wrap: wrap;
+                margin-left: -20px;
+                margin-right: -20px;
+
+                .single_member{
+                    width: 25%;
+                    padding: 0 20px;
+                    box-sizing: border-box;
+                    margin-bottom: 70px;
+
+                    .image_holder_wrap{
+                        margin-bottom: 30px;
+                        position: relative;
+
+                        .image_holder{
+                            position: relative;
+                            overflow: hidden;
+                            padding-top: 119%;
+    
+                            .single_member_image{
+                                .cropped_img()
+                            }
+                        }
+
+                        .social_icons{
+                            position: absolute;
+                            right: 30px;
+                            bottom: 20px;
+                            display: flex;
+
+                            a{
+                                width: 30px;
+                                height: 30px;
+                                border-radius: 100%;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+
+                                &.linkedin{
+                                    background-color: #F6A71E;
+                                     margin-right: 15px;
+                                }
+
+                                &.email{
+                                    background-color: #5C728A;
+                                }
+                            }
+                        }
+                    }
+
+                    h3{
+                        color: #032549;
+                        font-size: 20px;
+                        font-family: @fontB;
+                        letter-spacing: 1px;
+                        margin-bottom: 5px;
+                    }
+
+                    p{
+                        .text();
+                        font-size: 16px;
+                    }
+                    
+                }
+            }
+        }
+        
+    }
+}

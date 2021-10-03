@@ -1,0 +1,216 @@
+.template_about_wrap{
+    padding-top: 172px;
+    
+    .template_about_content{
+        margin-top: 119px;
+        margin-bottom: 140px;
+
+        .first_section{
+            h2{
+                color: #032549;
+                font-size: 52px;
+                font-family: @fontB;
+                letter-spacing: 1px;
+                margin-bottom: 70px;
+                box-sizing: border-box;
+            }
+
+            .first_section_content{
+                display: flex;
+                flex-wrap: wrap;
+                padding: 45px 0px;
+                box-sizing: border-box;
+                position: relative;
+
+                &:after{
+                    content: '';
+                    width: 80%;
+                    top: 0;
+                    right: 0;
+                    position: absolute;
+                    height: 100%;
+                    z-index: 0;
+                    border: 2px solid @color2;
+                }
+
+                .left{
+                    width: 30%;
+                    position: relative;
+                    z-index: 1;
+                    background-color: #Fff;
+
+                    .image_holder{
+                        position: relative;
+                        overflow: hidden;
+                        padding-top: 130%;
+
+                        img{
+                            .cropped_img();
+                        }
+                    }
+                }
+
+                .right{
+                    width: 70%;
+                    padding: 0 90px;
+                    box-sizing: border-box;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    position: relative;
+                    z-index: 1;
+                    // background-color: #Fff;
+
+                    p{
+                        .text();
+                        line-height: 1.4em;
+                    }
+
+                    .author{
+                        text-align: right;
+                        margin-top: 77px;
+
+                        h3{
+                            color: @color1;
+                            font-size: 20px;
+                            font-family: @fontB;
+                            letter-spacing: 1px;
+                            margin-bottom: 5px;
+                        }
+    
+                        p{
+                            .text();
+                            font-size: 16px;
+                            color: @color1;
+                        }
+                    }
+                }
+            }
+        }
+
+        .accordion{
+            margin-top: 120px;
+
+            .single_accordion {
+                border-top: 1px solid #5C728A;
+                padding: 30px 40px;
+                box-sizing: border-box;
+                cursor: pointer;
+                .transition();
+                
+                &:last-child{
+                    border-bottom: 1px solid #5C728A;
+                }
+        
+                &.active {        
+                  h3 {
+                    .opener {
+                      span {
+                        &:nth-of-type(2) {
+                          width: 0px;
+                        }
+                      }
+                    }
+                  }
+                }
+        
+                h3 {
+                  color: @color1;
+                  font-size: 30px;
+                  font-family: @fontB;
+                  position: relative;
+
+        
+                  .opener {
+                    position: absolute;
+                    cursor: pointer;
+                    width: 24px;
+                    height: 24px;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+    
+        
+                    span {
+                      display: inline-block;
+                      height: 2px;
+                      background-color: @color2;
+                      width: 24px;
+                      position: absolute;
+                      top: 50%;
+        
+                      &:nth-of-type(2) {
+                        left: 50%;
+                        transform: translateX(-50%) rotate(90deg);
+                        .transition();
+                      }
+                    }
+                  }
+                }
+
+                .question_content{
+                    display: none;
+                    flex-wrap: wrap;
+                    padding-top: 93px;
+                    padding-bottom: 44px;
+                    box-sizing: border-box;
+
+                    .left{
+                        width: 40%;
+
+                        .image_holder{
+                            position: relative;
+                            overflow: hidden;
+                            padding-top: 64%;
+
+                            img{
+                                .cropped_img();
+                            }
+                        }
+
+                        .image_caption{
+                            padding-left: 30px;
+                            box-sizing: border-box;
+                            position: relative;
+                            font-family: @fontR;
+                            font-size: 14px;
+                            color: #5C728A;
+                            font-style: italic;
+                            margin-top: 17px;
+                            line-height: 1.4em;
+
+                            &:after{
+                                content: '';
+                                width: 2px;
+                                background-color: @color2;
+                                height: 100%;
+                                position: absolute;
+                                top: 0;
+                                left: 15px;
+                            }
+                        }
+                    }
+
+                    .right{
+                        width: 60%;
+                        box-sizing: border-box;
+                        padding-left: 107px;
+
+                        h2{
+                            color: #032549;
+                            font-size: 40px;
+                            font-family: @fontB;
+                            letter-spacing: 1px;
+                            margin-bottom: 25px;
+                        }
+    
+                        p{
+                            .text();
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,70 @@
+.template_achivements_wrap{
+    padding-top: 172px;
+
+    .template_achivements_content{
+
+        margin-top: 119px;
+        margin-bottom: 144px;
+        
+        .achivements_list{
+            .single_item{
+                padding: 54px 0px;
+                box-sizing: border-box;
+                border-bottom: 1px solid #5C728A;
+                display: flex;
+                flex-wrap: wrap;
+                
+                &:first-child{
+                    padding-top: 0px;
+                };
+
+                &:last-child{
+                    border: none;
+                };
+
+                .left{
+                    width: 20%;
+
+                    .image_holder{
+                        position: relative;
+                        overflow: hidden;
+                        padding-top: 67%;
+
+                        img{
+                            .cropped_img();
+                        }
+                    }
+                }
+
+                .right{
+                    width:  80%;
+                    padding-left: 73px;
+                    box-sizing: border-box;
+
+                    h3{
+                        color: #032549;
+                        font-size: 24px;
+                        font-family: @fontB;
+                        letter-spacing: 1px;
+                        line-height: 1.26em;
+                        margin-bottom: 20px;
+                    }
+
+                    p{
+                        .text();
+                        font-size: 16px;
+                        margin-bottom: 23px;
+                    }
+
+                    a{
+                        font-size: 16px;
+                        color: #5C728A;
+                        line-height: 1.26em;
+                        font-family: @fontR;
+                    }
+                }
+            }
+        }
+    }
+    
+}
