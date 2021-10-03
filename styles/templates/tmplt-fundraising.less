@@ -1,13 +1,34 @@
 .template_fundraising_wrap{
     .template_fundraising_content{
-        margin-top: 119px;
-        margin-bottom: 165px;
+        margin-top: 69px;
+        margin-bottom: 80px;
+        overflow: hidden;
+
+        @media @tablet-s {
+            margin-top: 89px;
+            margin-bottom: 125px;
+        }
+
+        @media @laptop-s {
+            margin-top: 119px;
+            margin-bottom: 165px;
+        }
 
         .list_section{
             background-color: #F4F4F4;
-            padding: 48px 90px 80px 90px;
+            padding: 30px;
             box-sizing: border-box;
-            margin-bottom: 125px;
+            margin-bottom: 40px;
+
+            @media @tablet-s {
+                margin-bottom: 60px;
+                padding: 40px;
+            }
+
+            @media @laptop-s {
+                margin-bottom: 125px;
+                padding: 48px 90px 80px 90px;
+            }
 
             .list_section_content{
                 .single_item{
@@ -23,6 +44,7 @@
                         font-family: @fontB;
                         letter-spacing: 1px;
                         line-height: 1.26em;
+                        margin-bottom: 5px;
 
                         &:before{
                             content: '+';
@@ -40,16 +62,31 @@
         }
 
         .orange_box{
-            margin-bottom: 119px;
+            width: 100%;
+            margin-bottom: 69px;
+
+            @media @tablet-s {
+                margin-bottom: 89px;
+            }
+    
+            @media @laptop-s {
+                margin-bottom: 119px;
+            }
+
         }
 
         .activities_section{
             h2{
                 color: #032549;
-                font-size: 52px;
+                font-size: 32px;
                 font-family: @fontB;
                 letter-spacing: 1px;
-                margin-bottom: 75px;
+                margin-bottom: 35px;
+
+                @media @tablet-s {
+                    font-size: 52px;
+                    margin-bottom: 75px;
+                }
             }
 
             p{
@@ -57,18 +94,27 @@
             }
 
             .single_activity{
-                padding-top: 95px;
-                padding-bottom: 95px;
+                padding-top: 35px;
+                padding-bottom: 35px;
                 border-top: 1px solid #5C728A;
                 display: flex;
                 flex-wrap: wrap;
+
+                @media @tablet-s {
+                    padding-top: 95px;
+                    padding-bottom: 95px;
+                }
 
                 &:last-child{
                     border-bottom: 1px solid #5C728A;
                 }
 
                 .left{
-                    width: 40%;
+                    width: 100%;
+
+                    @media @tablet-l{
+                        width: 40%;
+                    }
 
                     .single_activity_swiper{
                         padding-bottom: 30px;
@@ -100,16 +146,26 @@
                 }
 
                 .right{
-                    width: 60%;
-                    padding-left: 87px;
+                    width: 100%;
                     box-sizing: border-box;
+                    margin-top: 40px;
+
+                    @media @tablet-l{
+                        width: 60%;
+                        margin-top: 0px;
+                        padding-left: 87px;
+                    }
 
                     h3{
                         color: #032549;
-                        font-size: 40px;
+                        font-size: 30px;
                         font-family: @fontB;
                         letter-spacing: 1px;
                         margin-bottom: 15px;
+
+                        @media @tablet-s {
+                            font-size: 40px;
+                        }
                     }
 
                     .date{
@@ -130,18 +186,39 @@
         }
 
         .past_fundriser{
-            margin-top: 115px;
+            margin-top: 53px;
+
+            @media @tablet-s {
+                margin-top: 73px;
+            }
+
+            @media @laptop-s {
+                margin-top: 115px;
+            }
 
             h2{
                 color: #032549;
-                font-size: 52px;
+                font-size: 32px;
                 font-family: @fontB;
                 letter-spacing: 1px;
-                margin-bottom: 93px;
+                margin-bottom: 43px;
+
+                @media @tablet-s {
+                    font-size: 52px;
+                    margin-bottom: 63px;
+                }
+
+                @media @laptop-s {
+                    margin-bottom: 93px;
+                }
             }
 
             .single_fundriser{
-                margin-bottom: 50px;
+                margin-bottom: 25px;
+
+                @media @tablet-s {
+                    margin-bottom: 50px;
+                }
 
                 &:last-child{
                     margin-bottom: 0px;
@@ -149,11 +226,15 @@
 
                 h3{
                     color: #032549;
-                    font-size: 18px;
+                    font-size: 16px;
                     font-family: @fontB;
                     letter-spacing: 1px;
                     line-height: 1.26em;
                     margin-bottom: 10px;
+
+                    @media @tablet-s {
+                        font-size: 18px;
+                    }
                 }
 
                 p{

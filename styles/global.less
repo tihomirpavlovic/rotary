@@ -153,15 +153,27 @@ body {
 }
 
 .page_hero_descripton{
-    margin-bottom: 128px;
+    margin-bottom: 40px;
+
+    @media @tablet-s {
+        margin-bottom: 60px;
+    }
+
+    @media @laptop-s {
+        margin-bottom: 128px;
+    }
 
     h2{
         color: #032549;
-        font-size: 52px;
+        font-size: 32px;
         font-family: @fontB;
         letter-spacing: 1px;
-        line-height: 1.26em;
-        margin-bottom: 44px;
+        // line-height: 1.26em;
+        margin-bottom: 40px;
+
+        @media @tablet-s {
+            font-size: 52px;
+        }
     }
 
     p{
@@ -398,9 +410,13 @@ body {
 
 .text{
     color: #383838;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.4em;
     .fontR();
+
+    @media @tablet-s {
+        font-size: 18px;
+    }
 }
 
 
