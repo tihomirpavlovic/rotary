@@ -640,8 +640,12 @@ body {
     .image_holder{
         position: relative;
         overflow: hidden;
-        padding-top: 31%;
+        padding-top: 67%;
         width: 100%;
+
+        @media @tablet-s {
+            padding-top: 31%;
+        }
         img{
             .cropped_img;
         }
@@ -657,9 +661,15 @@ body {
         transform: translateX(-50%);
 
         h2{
-            font-size: 72px;
+            font-size: 32px;
             color: #fff;
             font-family: @fontB;
+
+            @media @tablet-s {
+                font-size: 72px;
+                line-height: 76px;
+                letter-spacing: 2.32px;
+            }
         }
     }
 }
