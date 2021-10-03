@@ -29,13 +29,17 @@
                 margin: auto;
 
                 .single_item{
-                    width: 300px;
                     padding: 20px;
                     box-sizing: border-box;
                     background-color: #E7E7E7;
                     margin-right: 5px;
                     cursor: pointer;
                     .transition();
+                    min-width: 120px;
+
+                    @media @laptop-s {
+                        min-width: 300px;
+                    }
 
                     p{
                         .text();
