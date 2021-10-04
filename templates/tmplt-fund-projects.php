@@ -5,17 +5,7 @@ $organismes = get_field('organismes');
 $principales_activites = get_field('principales_activites');
 get_header(); ?>
     <div class="template_fundraising_wrap">
-        <div class="global_hero">
-            <img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/wheel.svg" alt="">
-            <div class="image_holder">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/dev/global_banner.jpg" alt="">
-            </div>
-            <div class="hero_headline_wrap">
-                <h2 class="hero_headline">
-                    <?php echo get_the_title(); ?>
-                </h2>
-            </div>
-        </div>
+        <?php template_section_hero(); ?>
 
         <div class="template_fundraising_content content_wrap">
             <?php if($texte_dintroduction): ?>
