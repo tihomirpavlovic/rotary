@@ -1856,6 +1856,7 @@ header .header_content .hamburger span:nth-child(3) {
 .template_home_page_container .cols_section .cols .col .image_holder {
   position: relative;
   padding-top: 72%;
+  background-color: #032549;
 }
 @media only screen and (min-width : 768px) {
   .template_home_page_container .cols_section .cols .col .image_holder {
@@ -1879,13 +1880,12 @@ header .header_content .hamburger span:nth-child(3) {
 }
 .template_home_page_container .cols_section .cols .col .image_holder .date {
   position: absolute;
-  width: 55px;
   background-color: #f6a71e;
   z-index: 3;
   top: 0;
   right: 27px;
   text-align: center;
-  padding: 10px 0 14px 0;
+  padding: 10px 10px 14px 10px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
