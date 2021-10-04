@@ -30,7 +30,7 @@ get_header(); ?>
                                     <?php echo $singleProjects['texte'] ?>
                                 <?php endif; ?>
                                 <?php if($singleProjects['site_web']): ?>
-                                    <a href="<?php echo $singleProjects['site_web'] ?>">
+                                    <a href="<?php echo $singleProjects['site_web'] ?>" target="_blank">
                                         Site web
                                     </a>
                                 <?php endif; ?>

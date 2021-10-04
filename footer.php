@@ -65,32 +65,8 @@
 
         <div class="footer_form_wraper">
     
-            <?php echo do_shortcode('[contact-form-7 id="135" title="Untitled"]'); ?>
+            <?php echo do_shortcode('[contact-form-7 id="2372" title="Contact form French"]'); ?>
 
-            <!-- <form action="" method="get" class="contact-form">
-                <div class="flex_form">
-                    <div class="form_input">
-                        <input type="text" placeholder="Prénom*" required>
-                    </div>
-                    <div class="form_input">
-                        <input type="number" placeholder="Téléphone*" required>
-                    </div>
-                </div>
-                <div class="flex_form">
-                    <div class="form_input">
-                        <input type="text" placeholder="Nom*" required>
-                    </div>
-                    <div class="form_input">
-                        <input type="email" placeholder="Courriel*" required>
-                    </div>
-                </div>
-                <div class="form_input">
-                    <textarea type="text" placeholder="Message"></textarea>
-                </div>
-                <div class="button_holder">
-                    <button class="button" type="submit">Soumettre</button>
-                </div>
-            </form> -->
         </div>
     </div>
 
