@@ -279,16 +279,20 @@
                     .right{
                         width: 100%;
                         box-sizing: border-box;
-                        margin-top: 30px;
+                        
 
-                        @media @laptop-s {
-                            margin-top: 0;
-                            padding-left: 50px;
-                            width: 60%;
-                        }
+                        &.half{
+                            margin-top: 30px;
 
-                        @media @desktop-l {
-                            padding-left: 107px;
+                            @media @laptop-s {
+                                margin-top: 0;
+                                padding-left: 50px;
+                                width: 60%;
+                            }
+    
+                            @media @desktop-l {
+                                padding-left: 107px;
+                            }
                         }
 
                         h1, h2, h3, h4, h5, h6 {

@@ -54,19 +54,20 @@ get_header(); ?>
                             </h2>
 
                             <div class="question_content">
-                                <div class="left">
-                                    <?php if($singleAccordion['contenu']['image']): ?>
-                                        <div class="image_holder">
-                                            <img src="<?php echo $singleAccordion['contenu']['image']['url'] ?>" alt="<?php echo $singleAccordion['contenu']['image']['alt'] ?>">
-                                        </div>
-                                    <?php endif; ?>
-                                    <?php if($singleAccordion['contenu']['description_de_limage']): ?>
-                                        <div class="image_caption">
-                                            <?php echo $singleAccordion['contenu']['description_de_limage'] ?>
-                                        </div>
-                                    <?php endif; ?>
-                                </div>
-                                <div class="right">
+                                <?php if($singleAccordion['contenu']['image']): ?>
+                                    <div class="left">
+                                            <div class="image_holder">
+                                                <img src="<?php echo $singleAccordion['contenu']['image']['url'] ?>" alt="<?php echo $singleAccordion['contenu']['image']['alt'] ?>">
+                                            </div>
+                                        
+                                        <?php if($singleAccordion['contenu']['description_de_limage']): ?>
+                                            <div class="image_caption">
+                                                <?php echo $singleAccordion['contenu']['description_de_limage'] ?>
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
+                                <?php endif; ?>
+                                <div class="right<?php if($singleAccordion['contenu']['image']): ?> half<?php endif; ?>">
                                     <?php if($singleAccordion['contenu']['texte']): ?>
                                         <?php echo $singleAccordion['contenu']['texte'] ?>
                                     <?php endif; ?>
