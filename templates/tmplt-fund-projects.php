@@ -45,11 +45,11 @@ get_header(); ?>
             <div class="activities_section">
                 <h2>Principales activités <br> de levées de fonds</h2>
                 <?php if($principales_activites): ?>
-                    <?php foreach ($principales_activites as $singleActivity): ?>
+                    <?php foreach ($principales_activites as $index => $singleActivity): ?>
                         <div class="single_activity">
                             <div class="left">
                                 <?php if($singleActivity['galerie_dimages']):  ?>
-                                    <div class="swiper-container single_activity_swiper">
+                                    <div class="swiper-container activity_slider activity_slider_<?php echo $index; ?>" data-index="<?php echo $index; ?>">
                                         <div class="swiper-wrapper">
                                             <?php foreach ($singleActivity['galerie_dimages'] as $singleImage): ?>
                                                 <div class="swiper-slide">
@@ -59,15 +59,12 @@ get_header(); ?>
                                                 </div>
                                             <?php endforeach ?>
                                         </div>
-                                        <div class="swiper-pagination"></div>
+                                        <div class="swiper-pagination activity_slider_pagination_<?php echo $index; ?>"></div>
                                     </div>
                                 <?php endif; ?>
                             </div>
                             <div class="right">
-                                <?php if($singleActivity['texte']): ?>
-                                    <?php echo $singleActivity['texte']; ?>
-                                
-                                <?php endif; ?>
+                                <?php echo $singleActivity['texte']; ?>
                             </div>
                         </div>
                     <?php endforeach ?>

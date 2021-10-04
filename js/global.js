@@ -68,18 +68,47 @@
         $('.nos_actions_sublinks').toggleClass("closed");
     });
 
-    var single_activity_swiper = new Swiper('.single_activity_swiper', {
-        slidesPerView: 1,
-        autoplay: {
-            delay: 5000,
-        },
-        loop: true,
-        pagination: {
-            el: '.single_activity_swiper .swiper-pagination',
-            type: 'bullets',
-            clickable: true
-        }
-    });
+
+    //Activities sliders
+    //Template - Fundraising Projects
+    var activitiesGalleries = $('.activity_slider');
+
+    if( activitiesGalleries.length ) {
+        var activitiesGalleriesVariables = [];
+
+        for( let i=0; i < activitiesGalleries.length; i++ )
+            activitiesGalleriesVariables.push('gallery'+i);
+
+        activitiesGalleries.each(function(index){
+            var galleryIndex = $(this).data('index');
+            var galleryName = 'activity_slider_' + galleryIndex;
+            // var galleryButtonNext = 'activity_slider_btn_next_' + galleryIndex;
+            // var galleryButtonPrev = 'activity_slider_btn_prev_' + galleryIndex;
+            var galleryPagination = 'activity_slider_pagination_' + galleryIndex;
+
+            var gallerySlideLen = $('.' + galleryName + ' .swiper-slide').length;
+
+            var swiperOptions = {
+                slidesPerView: 1,
+                autoplay: {
+                    delay: 5000,
+                },
+                loop: true,
+                pagination: {
+                    el: '.' + galleryPagination,
+                    clickable: true,
+                    type: 'bullets',
+                },
+                // navigation: {
+                //     nextEl: '.' + galleryButtonNext,
+                //     prevEl: '.' + galleryButtonPrev,
+                // },
+            };
+
+            activitiesGalleriesVariables[index] = new Swiper('.'+galleryName,swiperOptions);
+        });
+    }
+    //Activities sliders end
 
     $(window).on('resize', function () {});
 
