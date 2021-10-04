@@ -37,17 +37,30 @@ get_header(); ?>
         $events = new WP_Query(array(
             'post_type' => 'mec-events',
             'posts_per_page' => 2,
+            // 'order_by' => 'start_date',
+            // 'order' => 'DESC',
             'post_status' => array('publish'),
         ));
 
-        if( $events->have_posts() ):
-            $categories = get_the_terms(get_the_ID(), 'mec_category')
-        ?>
+        if( $events->have_posts() ): ?>
             <section class="cols_section">
                 <h2 class="title content_wrap">Découvrez <br> nos événements</h2>
                 <div class="content_wrap_2">
                     <div class="cols">
-                        <?php while ( $events->have_posts() ): $events->the_post(); ?>
+                        <?php while ( $events->have_posts() ): $events->the_post();
+                            $categories = get_the_terms(get_the_ID(), 'mec_category');
+                            $myvals = get_post_meta(get_the_ID());
+
+                            // var_dump($myvals, 'mec_start_date');
+
+                            // foreach($myvals as $key=>$val){
+                            //     foreach($val as $vals){
+                            //       if ($key=='mec_start_date'){
+                            //          echo $vals;
+                            //       }
+                            //      }
+                            //    }
+                        ?>
                             <div class="col">
                                 <div class="image_holder">
                                     <?php if( get_the_post_thumbnail() ): ?>
@@ -56,6 +69,7 @@ get_header(); ?>
                                     <?php endif; ?>
 
                                     <div class="date">
+                                        <?php echo $startday; ?>
                                         <p class="day"><?php echo get_the_date('j'); ?></p>
                                         <p class="month"><?php echo get_the_date('F'); ?></p>
                                         <p class="year"><?php echo get_the_date('Y'); ?></p>

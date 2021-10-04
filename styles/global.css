@@ -1956,10 +1956,16 @@ header .header_content .hamburger span:nth-child(3) {
     font-size: 30px;
   }
 }
-.template_home_page_container .cols_section .cols .col .image_holder .info .post_desc {
+.template_home_page_container .cols_section .cols .col .image_holder .info .post_desc span {
   font-size: 16px;
   font-family: 'ProximaNovaA-Regular', sans-serif;
   color: #fff;
+}
+.template_home_page_container .cols_section .cols .col .image_holder .info .post_desc span:last-of-type:after {
+  content: none;
+}
+.template_home_page_container .cols_section .cols .col .image_holder .info .post_desc span:after {
+  content: ", ";
 }
 .template_home_page_container .cols_section .button_holder {
   text-align: center;
