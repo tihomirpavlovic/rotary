@@ -19,12 +19,15 @@ get_header(); ?>
             </div>
         </section>
 
-        <section class="info_section">
-            <div class="info_box">
-                <?php echo $rencontres_hebdomadaires; ?>
-            </div>
-        </section>
-        <?php if($spaghetti_des_regates): ?>
+        <?php if( $rencontres_hebdomadaires ): ?>
+            <section class="info_section">
+                <div class="info_box">
+                    <?php echo $rencontres_hebdomadaires; ?>
+                </div>
+            </section>
+        <?php endif; ?>
+
+        <?php if( $spaghetti_des_regates ): $spaghetti_des_regates = get_img_by_id($spaghetti_des_regates); ?>
             <section class="image_section content_wrap">
                 <img src="<?php echo $spaghetti_des_regates['url'] ?>" alt="<?php echo $spaghetti_des_regates['alt'] ?>">
             </section>
@@ -73,34 +76,43 @@ get_header(); ?>
             </div>
         </section>
 
-        <section class="description_section">
-            <div class="left">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/wheel-2.svg" alt="" class="background">
-                <?php if($notre_mission['bloc_orange']): ?>
-                <div class="box">
-                    <?php echo $notre_mission['bloc_orange']; ?>
-                    <!-- <p>Notre mission</p>
-                    <h2>Construire, soutenir <br>& organiser.</h2> -->
-                </div>
-                <?php endif; ?>
-            </div>
-            <div class="right">
-                <?php if($notre_mission['bloc_bleu']): ?>
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/dev/woman.jpg" alt="" class="background">
-
-                    <div class="description">
-                        <div class="text_editor">
-                            <?php echo $notre_mission['bloc_bleu']; ?>
+        <?php if( $notre_mission['bloc_orange'] || $notre_mission['bloc_bleu'] ): ?>
+            <section class="description_section">
+                <div class="left">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/wheel-2.svg" alt="" class="background">
+                    <?php if( $notre_mission['bloc_orange'] ): ?>
+                        <div class="box">
+                            <?php echo $notre_mission['bloc_orange']; ?>
                         </div>
-                        <?php if($notre_mission['bouton']): ?>
-                            <div class="button_holder">
-                                <a href="<?php echo $notre_mission['bouton']['url']; ?>" class="button"><?php echo $notre_mission['bouton']['title'] ?></a>
+                    <?php endif; ?>
+                </div>
+                <div class="right">
+                    <?php if( $notre_mission['bloc_bleu'] ): ?>
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/dev/woman.jpg" alt="" class="background">
+
+                        <div class="description">
+                            <div class="text_editor">
+                                <?php echo $notre_mission['bloc_bleu']; ?>
                             </div>
-                        <?php endif; ?>
-                    </div>
-                <?php endif; ?>
-            </div>
-        </section>
+
+                            <?php
+                            $link = $notre_mission['bouton'];
+                            if( $link ):
+                                $link_url = $link['url'];
+                                $link_title = $link['title'];
+                                $link_target = $link['target'] ? $link['target'] : '_self';
+                                ?>
+                                <div class="button_holder">
+                                    <a class="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                                        <?php echo esc_html( $link_title ); ?>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </section>
+        <?php endif; ?>
 
         <?php
         $news = new WP_Query(array(
