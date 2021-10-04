@@ -113,6 +113,19 @@
                     margin: auto;
                     margin-top: -60px;
                     min-height: 180px;
+                    .transition();
+
+                    &:hover{
+                        background-color: @color1;
+
+                        h3{
+                            color: @color2;
+                        }
+
+                        .date{
+                            color: #fff
+                        }
+                    }
 
                     @media @tablet-s {
                         padding: 32px 22px;
@@ -126,6 +139,7 @@
                         font-family: @fontB;
                         letter-spacing: 1px;
                         margin-bottom: 20px;
+                        .transition();
 
                         @media @tablet-s {
                             margin-bottom: 5px;
@@ -136,6 +150,7 @@
                         .text();
                         font-size: 16px;
                         color: #032549;
+                        .transition();
                     }
 
                     .opener {

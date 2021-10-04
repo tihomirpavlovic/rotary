@@ -84,11 +84,16 @@ header {
                 color: #fff;
                 margin-bottom: 32px;
 
-                p {
+                .cta_link{
                     margin-right: 28px;
                     font-size: 16px;
                     color: #fff;
                     font-family: @fontR;
+                    .transition();
+
+                    &:hover{
+                        color: @color2;
+                    }
                 }
 
                 .button {
@@ -125,6 +130,19 @@ header {
                             font-size: 18px;
                             font-family: @fontSB;
                             color: #fff;
+                            .transition();
+                        }
+
+                        &:hover{
+                            a{
+                                color: @color2;
+                            } 
+                        }
+
+                        &.current-menu-item, &.current-menu-parent {
+                            a{
+                                color: @color2;
+                            }
                         }
                     }
                 }
@@ -133,9 +151,21 @@ header {
                     display: flex;
                     align-items: center;
 
-                    img {
+                    svg {
                         width: 28px;
                         margin-right: 11px;
+
+                        path{
+                            .transition();
+                        }
+                    }
+
+                    &:hover{
+                        svg{
+                            path{
+                                fill: @color2;
+                            }
+                        }
                     }
                     
                     p {
