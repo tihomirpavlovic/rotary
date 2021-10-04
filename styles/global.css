@@ -1110,6 +1110,58 @@ header .header_content .hamburger span:nth-child(3) {
     max-width: 1141px;
   }
 }
+.site_footer .footer_content .footer_form_wraper .ajax-loader {
+  display: none;
+}
+.site_footer .footer_content .footer_form_wraper .wpcf7 form.sent .wpcf7-response-output {
+  border: none;
+  color: #383838;
+  font-size: 16px;
+  line-height: 1.4em;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+  font-size: 14px!important;
+}
+@media only screen and (min-width : 768px) {
+  .site_footer .footer_content .footer_form_wraper .wpcf7 form.sent .wpcf7-response-output {
+    font-size: 18px;
+  }
+}
+.site_footer .footer_content .footer_form_wraper .wpcf7 form.invalid .wpcf7-response-output,
+.site_footer .footer_content .footer_form_wraper .wpcf7 form.unaccepted .wpcf7-response-output {
+  border: none;
+  color: #383838;
+  font-size: 16px;
+  line-height: 1.4em;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+  font-size: 14px!important;
+}
+@media only screen and (min-width : 768px) {
+  .site_footer .footer_content .footer_form_wraper .wpcf7 form.invalid .wpcf7-response-output,
+  .site_footer .footer_content .footer_form_wraper .wpcf7 form.unaccepted .wpcf7-response-output {
+    font-size: 18px;
+  }
+}
+.site_footer .footer_content .footer_form_wraper .wpcf7-not-valid-tip {
+  color: #383838;
+  font-size: 16px;
+  line-height: 1.4em;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  margin-top: 5px;
+  font-size: 14px!important;
+  color: red;
+}
+@media only screen and (min-width : 768px) {
+  .site_footer .footer_content .footer_form_wraper .wpcf7-not-valid-tip {
+    font-size: 18px;
+  }
+}
 .site_footer .footer_content .footer_form_wraper .flex_form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2156,9 +2208,6 @@ header .header_content .hamburger span:nth-child(3) {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
   line-height: 22px;
-}
-.template_home_page_container .description_section .right .description .text_editor p {
-  margin-bottom: 10px;
 }
 .template_home_page_container .description_section .right .description .text_editor p:last-of-type {
   margin-bottom: 0;
@@ -3457,10 +3506,10 @@ header .header_content .hamburger span:nth-child(3) {
 .template_about_wrap .template_about_content .accordion .single_accordion:last-child {
   border-bottom: 1px solid #5C728A;
 }
-.template_about_wrap .template_about_content .accordion .single_accordion.active h3 .opener span:nth-of-type(2) {
+.template_about_wrap .template_about_content .accordion .single_accordion.active h2 .opener span:nth-of-type(2) {
   width: 0px;
 }
-.template_about_wrap .template_about_content .accordion .single_accordion h3 {
+.template_about_wrap .template_about_content .accordion .single_accordion h2 {
   color: #032549;
   font-size: 24px;
   font-family: 'ProximaNova-Bold', sans-serif;
@@ -3468,11 +3517,11 @@ header .header_content .hamburger span:nth-child(3) {
   padding-right: 30px;
 }
 @media only screen and (min-width : 1250px) {
-  .template_about_wrap .template_about_content .accordion .single_accordion h3 {
+  .template_about_wrap .template_about_content .accordion .single_accordion h2 {
     font-size: 30px;
   }
 }
-.template_about_wrap .template_about_content .accordion .single_accordion h3 .opener {
+.template_about_wrap .template_about_content .accordion .single_accordion h2 .opener {
   position: absolute;
   cursor: pointer;
   width: 20px;
@@ -3483,12 +3532,12 @@ header .header_content .hamburger span:nth-child(3) {
           transform: translateY(-50%);
 }
 @media only screen and (min-width : 1250px) {
-  .template_about_wrap .template_about_content .accordion .single_accordion h3 .opener {
+  .template_about_wrap .template_about_content .accordion .single_accordion h2 .opener {
     width: 24px;
     height: 24px;
   }
 }
-.template_about_wrap .template_about_content .accordion .single_accordion h3 .opener span {
+.template_about_wrap .template_about_content .accordion .single_accordion h2 .opener span {
   display: inline-block;
   height: 2px;
   background-color: #f6a71e;
@@ -3496,7 +3545,7 @@ header .header_content .hamburger span:nth-child(3) {
   position: absolute;
   top: 50%;
 }
-.template_about_wrap .template_about_content .accordion .single_accordion h3 .opener span:nth-of-type(2) {
+.template_about_wrap .template_about_content .accordion .single_accordion h2 .opener span:nth-of-type(2) {
   left: 50%;
   -webkit-transform: translateX(-50%) rotate(90deg);
           transform: translateX(-50%) rotate(90deg);
@@ -3589,7 +3638,12 @@ header .header_content .hamburger span:nth-child(3) {
     padding-left: 107px;
   }
 }
-.template_about_wrap .template_about_content .accordion .single_accordion .question_content .right h2 {
+.template_about_wrap .template_about_content .accordion .single_accordion .question_content .right h1,
+.template_about_wrap .template_about_content .accordion .single_accordion .question_content .right h2,
+.template_about_wrap .template_about_content .accordion .single_accordion .question_content .right h3,
+.template_about_wrap .template_about_content .accordion .single_accordion .question_content .right h4,
+.template_about_wrap .template_about_content .accordion .single_accordion .question_content .right h5,
+.template_about_wrap .template_about_content .accordion .single_accordion .question_content .right h6 {
   color: #032549;
   font-size: 27px;
   font-family: 'ProximaNova-Bold', sans-serif;
@@ -3597,14 +3651,24 @@ header .header_content .hamburger span:nth-child(3) {
   margin-bottom: 15px;
 }
 @media only screen and (min-width : 768px) {
-  .template_about_wrap .template_about_content .accordion .single_accordion .question_content .right h2 {
+  .template_about_wrap .template_about_content .accordion .single_accordion .question_content .right h1,
+  .template_about_wrap .template_about_content .accordion .single_accordion .question_content .right h2,
+  .template_about_wrap .template_about_content .accordion .single_accordion .question_content .right h3,
+  .template_about_wrap .template_about_content .accordion .single_accordion .question_content .right h4,
+  .template_about_wrap .template_about_content .accordion .single_accordion .question_content .right h5,
+  .template_about_wrap .template_about_content .accordion .single_accordion .question_content .right h6 {
     letter-spacing: 1px;
     font-size: 30px;
     margin-bottom: 25px;
   }
 }
 @media only screen and (min-width : 1250px) {
-  .template_about_wrap .template_about_content .accordion .single_accordion .question_content .right h2 {
+  .template_about_wrap .template_about_content .accordion .single_accordion .question_content .right h1,
+  .template_about_wrap .template_about_content .accordion .single_accordion .question_content .right h2,
+  .template_about_wrap .template_about_content .accordion .single_accordion .question_content .right h3,
+  .template_about_wrap .template_about_content .accordion .single_accordion .question_content .right h4,
+  .template_about_wrap .template_about_content .accordion .single_accordion .question_content .right h5,
+  .template_about_wrap .template_about_content .accordion .single_accordion .question_content .right h6 {
     font-size: 40px;
   }
 }

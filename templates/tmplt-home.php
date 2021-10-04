@@ -1,5 +1,8 @@
 <?php
 /* Template Name: Home */
+$rencontres_hebdomadaires = get_field('rencontres_hebdomadaires');
+$notre_mission = get_field('notre_mission');
+$spaghetti_des_regates = get_field('spaghetti_des_regates');
 get_header(); ?>
     <div class="template_home_page_container">
         <section class="hero_section">
@@ -18,19 +21,14 @@ get_header(); ?>
 
         <section class="info_section">
             <div class="info_box">
-                <h2>Rencontres hebdomadaires</h2>
-                <p>
-                    Les mardis à 12h30 au <strong>Club Touriste</strong>,<br>
-                    Salaberry-de-Valleyfield <br><br>
-
-                    En cette période de COVID-19, les réunions du club se tiennent exclusivement par internet.
-                </p>
+                <?php echo $rencontres_hebdomadaires; ?>
             </div>
         </section>
-
-        <section class="image_section content_wrap">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/dev/pub-spaghetti-regate.jpg" alt="">
-        </section>
+        <?php if($spaghetti_des_regates): ?>
+            <section class="image_section content_wrap">
+                <img src="<?php echo $spaghetti_des_regates['url'] ?>" alt="<?php echo $spaghetti_des_regates['alt'] ?>">
+            </section>
+        <?php endif; ?>
 
         <section class="cols_section">
             <h2 class="title content_wrap">Découvrez <br> nos événements</h2>
@@ -78,47 +76,29 @@ get_header(); ?>
         <section class="description_section">
             <div class="left">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/wheel-2.svg" alt="" class="background">
-
+                <?php if($notre_mission['bloc_orange']): ?>
                 <div class="box">
-                    <p>Notre mission</p>
-                    <h2>Construire, soutenir <br>& organiser.</h2>
+                    <?php echo $notre_mission['bloc_orange']; ?>
+                    <!-- <p>Notre mission</p>
+                    <h2>Construire, soutenir <br>& organiser.</h2> -->
                 </div>
+                <?php endif; ?>
             </div>
             <div class="right">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/dev/woman.jpg" alt="" class="background">
+                <?php if($notre_mission['bloc_bleu']): ?>
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/dev/woman.jpg" alt="" class="background">
 
-                <div class="description">
-                    <div class="text_editor">
-                        <p>
-                            Dans les Rotary clubs du monde entier, les Rotariens partagent la même passion : agir.
-                            En tant que bénévoles au niveau local, nous venons en aide à nos voisins en détresse.
-                            Nous construisons, soutenons et organisons. Nous sauvons des vies.
-                        </p>
-                        <br>
-                        <p>
-                            Nous agissons localement et mondialement.
-                            Dans le monde et près de chez vous, 1,2 millions de Rotariens, hommes et femmes:
-                        </p>
-                        <br>
-                        <br>
-                        <ul>
-                            <li>s'impliquent dans leurs collectivités</li>
-                            <li>rencontrent d'autres professionnels</li>
-                            <li>investissent de leur temps et font profiter les jeunes de leur expérience</li>
-                            <li>soutiennent des causes mondiales comme l'éradication de la polio</li>
-                            <li>mettent leurs compétences au service des autres</li>
-                        </ul>
-                        <br>
-                        <br>
-                        <p>
-                            Que vous soyez un bénévole chevronné ou débutant souhaitant vous lancer dans l'action d'intérêt public, nos clubs sont prêts à vous accueillir.
-                        </p>
+                    <div class="description">
+                        <div class="text_editor">
+                            <?php echo $notre_mission['bloc_bleu']; ?>
+                        </div>
+                        <?php if($notre_mission['bouton']): ?>
+                            <div class="button_holder">
+                                <a href="<?php echo $notre_mission['bouton']['url']; ?>" class="button"><?php echo $notre_mission['bouton']['title'] ?></a>
+                            </div>
+                        <?php endif; ?>
                     </div>
-
-                    <div class="button_holder">
-                        <a href="" class="button">Impliquez-vous</a>
-                    </div>
-                </div>
+                <?php endif; ?>
             </div>
         </section>
 

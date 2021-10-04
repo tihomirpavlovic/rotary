@@ -54,6 +54,18 @@ function remove_block_css(){
 add_action( 'wp_enqueue_scripts', 'remove_block_css', 100 );
 //Remove gutenberg styles END
 
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page(array(
+		'page_title' 	=> 'Theme Global Settings',
+		'menu_title'	=> 'Theme Settings',
+		'menu_slug' 	=> 'theme-general-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+	
+}
+
 require_once("inc/additional-functions.php");
 require_once("inc/custom-posts-types.php");
 require_once("inc/custom-taxonomies.php");

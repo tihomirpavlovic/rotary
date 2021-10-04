@@ -1,3 +1,7 @@
+<?php 
+    $boutique_en_ligne = get_field('boutique_en_ligne', 'option');
+    $joindre_le_rotary = get_field('joindre_le_rotary', 'option');
+?>
 <div class="content_wrap">
     <div class="orange_box footer">
         <div class="orange_box_content">
@@ -5,16 +9,20 @@
                 <img src="<?php echo get_template_directory_uri(); ?>/images/icons/footer_icon.svg" alt="">
             </div>
             <div class="box_info">
-                <h3>Consultez notre <br> boutique en ligne</h3>
-                <p>Pour ne rien manquer de la grande vente annuelle du Spaghetti des Régates.</p>
+                <?php echo $boutique_en_ligne['texte'] ?>
                 
+
+                <?php if($boutique_en_ligne['bouton']): ?>
+                    <div class="button_holder">
+                        <a href="<?php echo $boutique_en_ligne['bouton']['url'] ?>" class="button"><?php echo $boutique_en_ligne['bouton']['title'] ?></a>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <?php if($boutique_en_ligne['bouton']): ?>
                 <div class="button_holder">
-                    <a href="" class="button">COMMANDER</a>
+                    <a href="<?php echo $boutique_en_ligne['bouton']['url'] ?>" class="button"><?php echo $boutique_en_ligne['bouton']['title'] ?></a>
                 </div>
-            </div>
-            <div class="button_holder">
-                <a href="" class="button">COMMANDER</a>
-            </div>
+            <?php endif; ?>
         </div>
     </div>
 </div>
@@ -25,9 +33,17 @@
 
         <div class="email_site_social_media">
             <div class="left">
-                <h5>District 7040</h5>
-                <p><span>Courriel :</span> <a href="">info@rotaryvalleyfield.org</a></p>
-                <p><span>Site web international :</span> <a href="">rotary.org</a></p>
+                <?php if($joindre_le_rotary): ?>
+                    <?php if($joindre_le_rotary['district']): ?>
+                        <h5><?php echo $joindre_le_rotary['district'] ?></h5>
+                    <?php endif; ?>
+                    <?php if($joindre_le_rotary['courriel']): ?>
+                        <p><span>Courriel :</span> <a href="mailto:<?php echo $joindre_le_rotary['courriel'] ?>"><?php echo $joindre_le_rotary['courriel'] ?></a></p>
+                    <?php endif; ?>
+                    <?php if($joindre_le_rotary['site_web_international']): ?>
+                        <p><span>Site web international :</span> <a href="<?php echo $joindre_le_rotary['site_web_international'] ?>" target="_blank">rotary.org</a></p>
+                    <?php endif; ?>
+                <?php endif; ?>
             </div>
             <div class="right">
                 <h4 class="social_media_title">Suivez-nous</h4>
@@ -48,7 +64,10 @@
         </div>
 
         <div class="footer_form_wraper">
-            <form action="" method="get" class="contact-form">
+    
+            <?php echo do_shortcode('[contact-form-7 id="135" title="Untitled"]'); ?>
+
+            <!-- <form action="" method="get" class="contact-form">
                 <div class="flex_form">
                     <div class="form_input">
                         <input type="text" placeholder="Prénom*" required>
@@ -71,7 +90,7 @@
                 <div class="button_holder">
                     <button class="button" type="submit">Soumettre</button>
                 </div>
-            </form>
+            </form> -->
         </div>
     </div>
 
