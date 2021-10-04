@@ -33,48 +33,46 @@ get_header(); ?>
             </section>
         <?php endif; ?>
 
-        <section class="cols_section">
-            <h2 class="title content_wrap">Découvrez <br> nos événements</h2>
-            <div class="content_wrap_2">
-                <div class="cols">
-                    <div class="col">
-                        <div class="image_holder">
-                            <div class="overlay"></div>
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/dev/2.jpg" alt="">
-                            <div class="date">
-                                <p class="day">16</p>
-                                <p class="month">Juin</p>
-                                <p class="year">2021</p>
+        <?php
+        $events = new WP_Query(array(
+            'post_type' => 'mec-events',
+            'posts_per_page' => 2,
+            'post_status' => array('publish'),
+        ));
+
+        if( $events->have_posts() ): ?>
+            <section class="cols_section">
+                <h2 class="title content_wrap">Découvrez <br> nos événements</h2>
+                <div class="content_wrap_2">
+                    <div class="cols">
+                        <?php while ( $events->have_posts() ): $events->the_post(); ?>
+                            <div class="col">
+                                <div class="image_holder">
+                                    <?php if( get_the_post_thumbnail() ): ?>
+                                        <div class="overlay"></div>
+                                        <?php echo get_the_post_thumbnail(); ?>
+                                    <?php endif; ?>
+
+                                    <div class="date">
+                                        <p class="day"><?php echo get_the_date('j'); ?></p>
+                                        <p class="month"><?php echo get_the_date('F'); ?></p>
+                                        <p class="year"><?php echo get_the_date('Y'); ?></p>
+                                    </div>
+                                    <div class="info">
+                                        <h2 class="post_title"><?php the_title(); ?></h2>
+                                        <p class="post_desc">Soirée de financement</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="info">
-                                <h2 class="post_title">Souper Spaghetti des Régates</h2>
-                                <p class="post_desc">Soirée de financement</p>
-                            </div>
-                        </div>
+                        <?php endwhile; ?>
                     </div>
 
-                    <div class="col">
-                        <div class="image_holder">
-                            <div class="overlay"></div>
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/dev/1.jpg" alt="">
-                            <div class="date">
-                                <p class="day">23</p>
-                                <p class="month">Juil</p>
-                                <p class="year">2021</p>
-                            </div>
-                            <div class="info">
-                                <h2 class="post_title">Souper Homard du Club Rotary</h2>
-                                <p class="post_desc">Soirée de financement</p>
-                            </div>
-                        </div>
+                    <div class="button_holder">
+                        <a href="" class="button dark">Voir le calendrier</a>
                     </div>
                 </div>
-
-                <div class="button_holder">
-                    <a href="" class="button dark">Voir le calendrier</a>
-                </div>
-            </div>
-        </section>
+            </section>
+        <?php endif; ?>
 
         <?php if( $notre_mission['bloc_orange'] || $notre_mission['bloc_bleu'] ): ?>
             <section class="description_section">
