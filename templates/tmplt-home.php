@@ -40,7 +40,9 @@ get_header(); ?>
             'post_status' => array('publish'),
         ));
 
-        if( $events->have_posts() ): ?>
+        if( $events->have_posts() ):
+            $categories = get_the_terms(get_the_ID(), 'mec_category')
+        ?>
             <section class="cols_section">
                 <h2 class="title content_wrap">Découvrez <br> nos événements</h2>
                 <div class="content_wrap_2">
@@ -60,7 +62,14 @@ get_header(); ?>
                                     </div>
                                     <div class="info">
                                         <h2 class="post_title"><?php the_title(); ?></h2>
-                                        <p class="post_desc">Soirée de financement</p>
+
+                                        <?php if( $categories ): ?>
+                                            <p class="post_desc">
+                                                <?php foreach( $categories as $cat ): ?>
+                                                    <span><?php echo $cat->name; ?></span>
+                                                <?php endforeach; ?>
+                                            </p>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>

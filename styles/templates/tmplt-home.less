@@ -332,9 +332,21 @@
                         }
 
                         .post_desc {
-                            font-size: 16px;
-                            font-family: @fontR;
-                            color: #fff;
+                            span {
+                                font-size: 16px;
+                                font-family: @fontR;
+                                color: #fff;
+
+                                &:last-of-type {
+                                    &:after {
+                                        content: none;
+                                    }
+                                }
+
+                                &:after {
+                                    content: ", ";
+                                }
+                            }
                         }
                     }
                 }
