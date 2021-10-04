@@ -69,3 +69,9 @@ if( function_exists('acf_add_options_page') ) {
 require_once("inc/additional-functions.php");
 require_once("inc/custom-posts-types.php");
 require_once("inc/custom-taxonomies.php");
+
+//Include all templates sections
+foreach (new DirectoryIterator(get_stylesheet_directory().'/templates-sections/') as $fileInfo) {
+    if($fileInfo->isDot()) continue;
+    require_once(get_stylesheet_directory().'/templates-sections/'.$fileInfo->getFilename());
+}

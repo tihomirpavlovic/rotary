@@ -93,7 +93,8 @@ body {
     overflow: hidden;
 }
 
-.template_home_page_container {
+.template_home_page_container,
+.template_single_news_wrap {
     padding-top: @header_mobile;
 
     @media @tablet-s {
@@ -364,71 +365,6 @@ body {
     }
 }
 
-.global_hero{
-    position: relative;
-    display: flex;
-    justify-self: center;
-    align-items: center;
-
-    .logo {
-        position: absolute;
-        bottom: -20%;
-        right: 0;
-        z-index: 2;
-        width : 38%;
-        display: none;
-
-        @media @laptop-s {
-            display: block;
-        }
-    }
-
-    .image_holder{
-        position: relative;
-        overflow: hidden;
-        padding-top: 67%;
-        width: 100%;
-
-        @media @tablet-l {
-            padding-top: 47%;
-        }
-
-        @media @laptop-s {
-            padding-top: 31%;
-        }
-
-        img{
-            .cropped_img;
-        }
-    }
-    .hero_headline_wrap{
-        position: absolute;
-        max-width: 1503px;
-        padding: 0 17px;
-        box-sizing: border-box;
-        margin: auto;
-        width: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-
-        @media @tablet-s {
-            padding: 0 40px;
-        }
-
-        h2{
-            font-size: 32px;
-            color: #fff;
-            font-family: @fontB;
-
-            @media @tablet-s {
-                font-size: 72px;
-                line-height: 76px;
-                letter-spacing: 2.32px;
-            }
-        }
-    }
-}
-
 //Add to any plugin
 .addtoany_shortcode {
     //mobile fix
@@ -457,5 +393,7 @@ body {
 @import 'templates/tmplt-members';
 @import 'templates/tmplt-news';
 @import 'templates/tmplt-about';
+
+@import 'templates-sections/tmplt-section-hero';
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');

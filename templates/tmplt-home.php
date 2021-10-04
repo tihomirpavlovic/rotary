@@ -102,36 +102,51 @@ get_header(); ?>
             </div>
         </section>
 
-        <section class="news_section">
-            <h2 class="title">Nos nouvelles</h2>
+        <?php
+        $news = new WP_Query(array(
+            'post_type' => 'actualites',
+            'posts_per_page' => 3,
+            'post_status' => array('publish')
+        ));
+        if( $news->have_posts() ): ?>
+            <section class="news_section">
+                <h2 class="title">Nos nouvelles</h2>
 
-            <div class="news_wrap">
-                <?php for( $i=0; $i<3; $i++ ): ?>
-                    <a class="single_news">
-                        <div class="image_holder">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/dev/spaghetti.jpg" alt="">
-                        </div>
-
-
-                        <div class="news_info">
-                            <h3>Titre de l’article</h3>
-                            <div class="date">
-                                22 mars 2021
+                <div class="news_wrap">
+                    <?php while( $news->have_posts() ): $news->the_post();
+                    $date = get_field('date');
+                    $image = get_field('image');
+                    ?>
+                        <a href="<?php the_permalink(); ?>" class="single_news">
+                            <div class="image_holder">
+                                <?php if( $image ): $image = get_img_by_id($image); ?>
+                                    <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+                                <?php else: ?>
+                                    <img class="no_image_logo" src="<?php echo get_template_directory_uri(); ?>/images/no-post-image-logo.svg" alt="">
+                                <?php endif; ?>
                             </div>
 
-                            <div class="opener">
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </div>
-                    </a>
-                <?php endfor; ?>
-            </div>
+                            <div class="news_info">
+                                <h3><?php the_title(); ?></h3>
 
-            <div class="button_holder">
-                <a href="" class="button dark">Lire davantage</a>
-            </div>
-        </section>
+                                <?php if( $date ): ?>
+                                    <div class="date"><?php echo $date; ?></div>
+                                <?php endif; ?>
+
+                                <div class="opener">
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </a>
+                    <?php endwhile; wp_reset_postdata(); ?>
+                </div>
+
+                <div class="button_holder">
+                    <a href="" class="button dark">Lire davantage</a>
+                </div>
+            </section>
+        <?php endif; ?>
     </div>
 <?php
 get_footer(); ?>
