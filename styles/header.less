@@ -26,6 +26,7 @@ header {
         position: absolute;
         bottom: 30px;
         left: 0;
+        z-index: 0;
 
         @media @laptop-s {
             content: "";
@@ -43,6 +44,8 @@ header {
         justify-content: space-between;
         padding: 0 17px;
         height: 100%;
+        z-index: 2;
+        position: relative;
 
         @media @tablet-s {
             padding: 0 40px;
@@ -82,7 +85,7 @@ header {
                 align-items: center;
                 justify-content: flex-end;
                 color: #fff;
-                margin-bottom: 32px;
+                margin-bottom: 22px;
 
                 p {
                     margin-right: 28px;
@@ -103,6 +106,8 @@ header {
                 display: flex;
                 color: #fff;
                 align-items: center;
+                position: relative;
+                top: 5px;
 
                 ul {
                     margin-right: 25px;
@@ -110,7 +115,7 @@ header {
                     align-items: center;
                     justify-content: space-between;
 
-                    &::after{
+                    &:after{
                         content: "";
                         display: block;
                         width: 1px;
@@ -120,11 +125,75 @@ header {
 
                     li {
                         margin-right: 35px;
+                        position: relative;
+                        white-space: nowrap;
+                        padding: 10px 0;
 
                         a {
                             font-size: 18px;
                             font-family: @fontSB;
                             color: #fff;
+                        }
+
+                        &.menu-item-has-children {
+                            a {
+                                position: relative;
+
+                                &:after {
+                                    content: "";
+                                    background-image: url("../images/icons/triangle.svg");
+                                    background-size: contain;
+                                    background-repeat: no-repeat;
+                                    display: block;
+                                    width: 11px;
+                                    height: 8px;
+                                    position: absolute;
+                                    right: -18px;
+                                    top: 8px;
+                                    .transition();
+                                }
+                            }
+
+                            &:hover {
+                                a {
+                                    &:after {
+                                        transform: rotate(180deg);
+                                    }
+                                }
+
+                                .sub-menu {
+                                    display: block;
+                                }
+                            }
+
+                            .sub-menu {
+                                position: absolute;
+                                top: 100%;
+                                left: 0;
+                                display: none;
+                                background-color: @color3;
+                                padding: 20px;
+                                box-sizing: border-box;
+
+                                &:after {
+                                    content: none;
+                                }
+
+                                li {
+                                    margin-bottom: 10px;
+                                    padding: 0;
+
+                                    &:last-of-type {
+                                        margin-bottom: 0;
+                                    }
+
+                                    a {
+                                        &:after {
+                                            content: none;
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -268,12 +337,18 @@ header {
                                 background-size: contain;
                                 background-repeat: no-repeat;
                                 display: block;
-                                width: 11px;
-                                height: 8px;
+                                width: 9px;
+                                height: 7px;
                                 position: absolute;
                                 right: -20px;
-                                top: 8px;
+                                top: 10px;
                                 .transition();
+
+                                @media @tablet-s {
+                                    height: 8px;
+                                    width: 11px;
+                                    top: 15px;
+                                }
                             }
                         }
 

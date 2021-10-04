@@ -26,7 +26,14 @@
                 <nav>
                     <ul>
                         <li><a href="#">Le Rotary</a></li>
-                        <li><a href="#">Nos actions</a></li>
+                        <li class="menu-item-has-children">
+                            <a href="#">Nos actions</a>
+
+                            <ul class="sub-menu">
+                                <li><a href="#">Levées de fonds & activités</a></li>
+                                <li><a href="#">Principales réalisations</a></li>
+                            </ul>
+                        </li>
                         <li><a href="#">Calendrier</a></li>
                         <li><a href="#">Membres</a></li>
                         <li><a href="#">Boutique</a></li>
