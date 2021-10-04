@@ -585,8 +585,8 @@ header .header_content .nav_holder nav ul li a {
 header .header_content .nav_holder nav ul li:hover > a {
   color: #f6a71e;
 }
-header .header_content .nav_holder nav ul li.current-menu-item a,
-header .header_content .nav_holder nav ul li.current-menu-parent a {
+header .header_content .nav_holder nav ul li.current-menu-item > a,
+header .header_content .nav_holder nav ul li.current-menu-parent > a {
   color: #f6a71e;
 }
 header .header_content .nav_holder nav ul li.menu-item-has-children a {
