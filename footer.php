@@ -63,7 +63,7 @@
             </div>
         </div>
 
-        <div class="footer_form_wraper">
+        <div class="footer_form_wraper" id="contact">
     
             <?php echo do_shortcode('[contact-form-7 id="2372" title="Contact form French"]'); ?>
 
