@@ -1,6 +1,8 @@
 <?php
 /* Template Name: News */
-get_header(); ?>
+get_header();
+$filtered_cat = ( isset($_GET["catégorie"]) ) ? $_GET["catégorie"] : "";
+?>
     <div class="template_news_wrap">
         <?php template_section_hero(); ?>
 
@@ -9,100 +11,48 @@ get_header(); ?>
                 <h2>Nos nouvelles</h2>
             </div>
 
-            <div class="filters_holder">
-                <div class="filter_wrap">
-                    <div class="single_item">
-                        <p>
-                            Tous
-                        </p>
-                    </div>
-                    <div class="single_item">
-                        <p>
-                            Rotary Sallabery-de-Valleryfield
-                        </p>
-                    </div>
-                    <div class="single_item">
-                        <p>
-                            Rotary International
-                        </p>
+            <?php
+            $field_key = "field_6141fb316907b";
+            $field = get_field_object($field_key);
+            if( $field ):?>
+                <div class="filters_holder" id="nouvelles">
+                    <div class="filter_wrap">
+                        <a href="<?php the_permalink(); ?>#nouvelles" class="single_item <?php echo ( !$filtered_cat ) ? ' active' : null; ?>">
+                            <p>Tous</p>
+                        </a>
+                        <?php foreach( $field['choices'] as $key => $value ): ?>
+                            <a href="<?php the_permalink(); ?>?catégorie=<?php echo $key; ?>#nouvelles" class="single_item <?php echo ( $filtered_cat == $key ) ? ' active' : null; ?>">
+                                <p><?php echo $value; ?></p>
+                            </a>
+                        <?php endforeach; ?>
                     </div>
                 </div>
-            </div>
+            <?php endif; ?>
 
-            <div class="news_wrap">
-                <a class="single_news">
-                    <div class="image_holder">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/dev/spaghetti.jpg" alt="">
-                    </div>
+            <?php
+            $posts_per_page = 3;
+            $news = new WP_Query(array(
+                'post_type' => 'actualites',
+                'posts_per_page' => $posts_per_page,
+                'post_status' => array('publish'),
+                'meta_key' => 'categorie',
+                'meta_value' => $filtered_cat
+            ));
+            if( $news->have_posts() ): ?>
+                <div class="news_wrap" id="response" data-action="<?php echo site_url() ?>/wp-admin/admin-ajax.php">
+                    <?php print_posts($news); ?>
+                </div>
 
-                    <div class="news_info">
-                        <h3>Titre de l’article</h3>
-                        <div class="date">
-                            22 mars 2021
-                        </div>
-
-                        <div class="opener">
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </div>
-                </a>
-                <a class="single_news">
-                    <div class="image_holder">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/dev/spaghetti.jpg" alt="">
-                    </div>
-
-                    <div class="news_info">
-                        <h3>Titre de l’article</h3>
-                        <div class="date">
-                            22 mars 2021
-                        </div>
-
-                        <div class="opener">
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </div>
-                </a>
-                <a class="single_news">
-                    <div class="image_holder">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/dev/spaghetti.jpg" alt="">
-                    </div>
-
-                    <div class="news_info">
-                        <h3>Titre de l’article</h3>
-                        <div class="date">
-                            22 mars 2021
-                        </div>
-
-                        <div class="opener">
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </div>
-                </a>
-                <a class="single_news">
-                    <div class="image_holder">
-                        <img class="no_image_logo" src="<?php echo get_template_directory_uri(); ?>/images/no-post-image-logo.svg" alt="">
-                    </div>
-
-                    <div class="news_info">
-                        <h3>Titre de l’article</h3>
-                        <div class="date">
-                            22 mars 2021
-                        </div>
-
-                        <div class="opener">
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="button_holder">
-                <a href="" class="button dark">Plus d’articles</a>
-            </div>
+                <div class="button_holder">
+                    <button class="button dark load_more_btn <?php echo ( $posts_per_page >= $news->found_posts ) ? ' disabled' : null; ?>" data-total-posts="<?php echo $news->found_posts; ?>">
+                        Plus d’articles
+                    </button>
+                </div>
+            <?php else: ?>
+                <div class="no_results">
+                    <p>Pas de résultat</p>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 <?php

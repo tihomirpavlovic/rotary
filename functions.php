@@ -75,3 +75,61 @@ foreach (new DirectoryIterator(get_stylesheet_directory().'/templates-sections/'
     if($fileInfo->isDot()) continue;
     require_once(get_stylesheet_directory().'/templates-sections/'.$fileInfo->getFilename());
 }
+
+//Posts filter - Load more
+function posts_filter(){
+    $filtered_cat = $_POST['category'];
+    $filtered_page = $_POST['page'];
+
+    $args = array(
+        'post_type' => 'actualites',
+        'posts_per_page' => 3,
+        'post_status' => array('publish'),
+        'paged' => $filtered_page,
+    );
+
+    if( $filtered_cat ) {
+        array_push($args['tax_query'], array(
+            'taxonomy' => 'category',
+            'field' => 'slug',
+            'terms' => $filtered_cat,
+        ));
+    }
+
+    $posts = new WP_Query($args);
+    print_posts($posts);
+    die;
+}
+
+function print_posts($query){
+    while( $query->have_posts() ): $query->the_post();
+        $date = get_field('date');
+        $image = get_field('image');
+    ?>
+        <a href="<?php the_permalink(); ?>" class="single_news">
+            <div class="image_holder">
+                <?php if( $image ): $image = get_img_by_id($image); ?>
+                    <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+                <?php else: ?>
+                    <img class="no_image_logo" src="<?php echo get_template_directory_uri(); ?>/images/no-post-image-logo.svg" alt="">
+                <?php endif; ?>
+            </div>
+
+            <div class="news_info">
+                <h3><?php the_title(); ?></h3>
+
+                <?php if( $date ): ?>
+                    <div class="date"><?php echo $date; ?></div>
+                <?php endif; ?>
+
+                <div class="opener">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </a>
+    <?php endwhile; wp_reset_postdata();
+}
+add_action('wp_ajax_postsfilter', 'posts_filter'); // wp_ajax_{ACTION HERE}
+add_action('wp_ajax_nopriv_postsfilter', 'posts_filter');
+//Posts filter - Load more - END

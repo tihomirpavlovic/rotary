@@ -125,33 +125,7 @@ get_header(); ?>
                 <h2 class="title">Nos nouvelles</h2>
 
                 <div class="news_wrap">
-                    <?php while( $news->have_posts() ): $news->the_post();
-                    $date = get_field('date');
-                    $image = get_field('image');
-                    ?>
-                        <a href="<?php the_permalink(); ?>" class="single_news">
-                            <div class="image_holder">
-                                <?php if( $image ): $image = get_img_by_id($image); ?>
-                                    <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
-                                <?php else: ?>
-                                    <img class="no_image_logo" src="<?php echo get_template_directory_uri(); ?>/images/no-post-image-logo.svg" alt="">
-                                <?php endif; ?>
-                            </div>
-
-                            <div class="news_info">
-                                <h3><?php the_title(); ?></h3>
-
-                                <?php if( $date ): ?>
-                                    <div class="date"><?php echo $date; ?></div>
-                                <?php endif; ?>
-
-                                <div class="opener">
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                            </div>
-                        </a>
-                    <?php endwhile; wp_reset_postdata(); ?>
+                   <?php print_posts($news); ?>
                 </div>
 
                 <div class="button_holder">

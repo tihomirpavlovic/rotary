@@ -14,10 +14,50 @@
         $(this).toggleClass('active').children("ul").slideToggle();
     });
 
-    $('.filter_wrap .single_item').on('click', function(){
-        $('.filter_wrap .single_item').removeClass('active');
-        $(this).addClass("active");
-    });
+    //Posts filter - Load more
+    if( $('.template_news_wrap').length ) {
+        var loadMoreBtn = $('.load_more_btn');
+        var responseDiv = document.getElementById('response');
+        var page = 1;
+
+        $('.filter_wrap .single_item').on('click', function(){
+            $('.filter_wrap .single_item').removeClass('active');
+            $(this).addClass("active");
+        });
+
+        loadMoreBtn.on('click', function () {
+            var category = loadMoreBtn.data('category');
+            var totalPosts = parseInt($(this).data('total-posts'));
+
+            $.ajax({
+                url: $('#response').data('action'),
+                data: {
+                    action: 'postsfilter',
+                    page: page+=1,
+                    category: category
+                }, // form data
+                type: 'POST', // POST
+                beforeSend: function (xhr) {},
+                success: function (data) {
+                    if( data.length > 100 ) {
+                        responseDiv.innerHTML += data;
+
+                        $([document.documentElement, document.body]).animate({
+                            // scrollTop: $(document).scrollTop() + $('#response').height()
+                            scrollTop: $(document).scrollTop() + 400
+                        }, 1000);
+                    }
+                },
+                complete: function (xhr, status) {
+                    if ( $('.single_news').length >= totalPosts ) {
+                        loadMoreBtn.addClass('disabled');
+                    }
+                }
+            });
+            return false;
+        });
+    }
+    //Posts filter - Load more - END
 
     $('.single_accordion').on('click', function(event) {
         $(this).toggleClass('active');
