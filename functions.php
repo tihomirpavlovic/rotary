@@ -86,15 +86,20 @@ function posts_filter(){
         'posts_per_page' => 3,
         'post_status' => array('publish'),
         'paged' => $filtered_page,
+        'order'	=> 'DESC',
+        'orderby' => 'date',
+        'meta_key' => 'date',
+        'meta_type'	=> 'DATE',
+        'meta_query' => array()
     );
 
-    if( $filtered_cat ) {
-        array_push($args['tax_query'], array(
-            'taxonomy' => 'category',
-            'field' => 'slug',
-            'terms' => $filtered_cat,
+    if( $filtered_cat ):
+        array_push($args['meta_query'],array(
+            'key' => 'categorie',
+            'value' => $filtered_cat,
+            'compare' => '=',
         ));
-    }
+    endif;
 
     $posts = new WP_Query($args);
     print_posts($posts);

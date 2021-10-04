@@ -31,20 +31,35 @@ $filtered_cat = ( isset($_GET["catégorie"]) ) ? $_GET["catégorie"] : "";
 
             <?php
             $posts_per_page = 3;
-            $news = new WP_Query(array(
+
+            $args = array(
                 'post_type' => 'actualites',
                 'posts_per_page' => $posts_per_page,
                 'post_status' => array('publish'),
-                'meta_key' => 'categorie',
-                'meta_value' => $filtered_cat
-            ));
+                'order'	=> 'DESC',
+                'orderby' => 'date',
+                'meta_key' => 'date',
+                'meta_type'	=> 'DATE',
+                'meta_query' => array()
+            );
+
+            if( $filtered_cat ):
+                array_push($args['meta_query'],array(
+                    'key' => 'categorie',
+                    'value' => $filtered_cat,
+                    'compare' => '=',
+                ));
+            endif;
+
+            $news = new WP_Query($args);
+
             if( $news->have_posts() ): ?>
                 <div class="news_wrap" id="response" data-action="<?php echo site_url() ?>/wp-admin/admin-ajax.php">
                     <?php print_posts($news); ?>
                 </div>
 
                 <div class="button_holder">
-                    <button class="button dark load_more_btn <?php echo ( $posts_per_page >= $news->found_posts ) ? ' disabled' : null; ?>" data-total-posts="<?php echo $news->found_posts; ?>">
+                    <button class="button dark load_more_btn <?php echo ( $posts_per_page >= $news->found_posts ) ? ' disabled' : null; ?>" data-total-posts="<?php echo $news->found_posts; ?>" data-category="<?php echo $filtered_cat; ?>">
                         Plus d’articles
                     </button>
                 </div>

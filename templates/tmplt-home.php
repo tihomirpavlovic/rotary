@@ -118,7 +118,11 @@ get_header(); ?>
         $news = new WP_Query(array(
             'post_type' => 'actualites',
             'posts_per_page' => 3,
-            'post_status' => array('publish')
+            'post_status' => array('publish'),
+            'order'				=> 'DESC',
+            'orderby'			=> 'date',
+            'meta_key'			=> 'date',
+            'meta_type'			=> 'DATE'
         ));
         if( $news->have_posts() ): ?>
             <section class="news_section">
