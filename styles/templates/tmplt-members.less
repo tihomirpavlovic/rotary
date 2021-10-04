@@ -1,4 +1,14 @@
 .template_members_wrap{
+    padding-top: 62px;
+
+    @media @tablet-s {
+        padding-top: 122px;
+    }
+
+    @media @laptop-s {
+        padding-top: 172px;
+    }
+    
     .template_members_content{
         margin-top: 69px;
         margin-bottom: 80px;
@@ -77,9 +87,19 @@
                             position: relative;
                             overflow: hidden;
                             padding-top: 119%;
+                            background-color: @color1;
     
                             .single_member_image{
-                                .cropped_img()
+                                .cropped_img();
+                            }
+
+                            .no_image_logo {
+                                position: absolute;
+                                top: 45%;
+                                left: 50%;
+                                transform: translate(-50%,-50%);
+                                width: 163px;
+                                z-index: 0;
                             }
                         }
 

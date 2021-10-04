@@ -1,4 +1,13 @@
 .template_single_news_wrap {
+    padding-top: 62px;
+
+    @media @tablet-s {
+        padding-top: 122px;
+    }
+
+    @media @laptop-s {
+        padding-top: 172px;
+    }
     .template_single_news_content {
         margin: 80px auto;
         max-width: 1226px;
@@ -38,6 +47,25 @@
                         @media @laptop-s {
                             margin-right: 0;
                             display: block;
+                        }
+
+                        svg{
+                            .transition();
+
+                            path{
+                                .transition();
+                            }
+                        }
+
+                        &:hover{
+                            span{
+                                opacity: 1;
+                            }
+                            svg{
+                                path{
+                                    fill: @color1;
+                                }
+                            }
                         }
                     }
                 }
@@ -268,6 +296,7 @@
                 }
 
                 &:hover{
+                    color: @color1;
                     svg{
                         path{
                             fill: @color1;

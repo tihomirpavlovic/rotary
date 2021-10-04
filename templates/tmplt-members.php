@@ -110,7 +110,7 @@ get_header(); ?>
                     <div class="single_member">
                         <div class="image_holder_wrap">
                             <div class="image_holder">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/dev/member.jpg" alt="" class="single_member_image">
+                                <img class="no_image_logo" src="<?php echo get_template_directory_uri(); ?>/images/no-post-image-logo.svg" alt="">
                             </div>
 
                             <div class="social_icons">
