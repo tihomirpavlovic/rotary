@@ -13,7 +13,7 @@
     <header>
         <div class="header_content">
             <div class="logo_wraper">
-                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/site-logo.svg" alt="Site Logo"></a>
+                <a href="<?php echo get_home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/site-logo.svg" alt="Site Logo"></a>
             </div>
             <div class="nav_holder">
                 <div class="cta">
