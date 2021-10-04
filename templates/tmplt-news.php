@@ -93,7 +93,7 @@ get_header(); ?>
                 </a>
                 <a class="single_news">
                     <div class="image_holder">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/dev/spaghetti.jpg" alt="">
+                        <img class="no_image_logo" src="<?php echo get_template_directory_uri(); ?>/images/no-post-image-logo.svg" alt="">
                     </div>
 
                     <div class="news_info">

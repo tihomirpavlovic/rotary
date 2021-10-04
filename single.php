@@ -14,6 +14,9 @@ get_header(); ?>
         </div>
 
         <div class="template_single_news_content content_wrap">
+            <div class="share">
+                <?php echo do_shortcode( '[addtoany url="'.get_the_permalink().'" title="'.get_the_title().'"]' );  ?>
+            </div>
 
             <div class="featured_image">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/dev/spaghetti.jpg" alt="">
