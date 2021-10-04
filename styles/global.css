@@ -492,6 +492,7 @@ header:after {
   position: absolute;
   bottom: 30px;
   left: 0;
+  z-index: 0;
 }
 @media only screen and (min-width : 1250px) {
   header:after {
@@ -516,6 +517,8 @@ header .header_content {
           justify-content: space-between;
   padding: 0 17px;
   height: 100%;
+  z-index: 2;
+  position: relative;
 }
 @media only screen and (min-width : 768px) {
   header .header_content {
@@ -564,7 +567,7 @@ header .header_content .nav_holder .cta {
       -ms-flex-pack: end;
           justify-content: flex-end;
   color: #fff;
-  margin-bottom: 32px;
+  margin-bottom: 22px;
 }
 header .header_content .nav_holder .cta .cta_link {
   margin-right: 28px;
@@ -591,6 +594,8 @@ header .header_content .nav_holder nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
+  top: 5px;
 }
 header .header_content .nav_holder nav ul {
   margin-right: 25px;
@@ -604,7 +609,7 @@ header .header_content .nav_holder nav ul {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-header .header_content .nav_holder nav ul::after {
+header .header_content .nav_holder nav ul:after {
   content: "";
   display: block;
   width: 1px;
@@ -613,6 +618,9 @@ header .header_content .nav_holder nav ul::after {
 }
 header .header_content .nav_holder nav ul li {
   margin-right: 35px;
+  position: relative;
+  white-space: nowrap;
+  padding: 10px 0;
 }
 header .header_content .nav_holder nav ul li a {
   font-size: 18px;
@@ -621,12 +629,58 @@ header .header_content .nav_holder nav ul li a {
   -webkit-transition: all 400ms ease 0ms;
   transition: all 400ms ease 0ms;
 }
-header .header_content .nav_holder nav ul li:hover a {
+header .header_content .nav_holder nav ul li:hover > a {
   color: #f6a71e;
 }
 header .header_content .nav_holder nav ul li.current-menu-item a,
 header .header_content .nav_holder nav ul li.current-menu-parent a {
   color: #f6a71e;
+}
+header .header_content .nav_holder nav ul li.menu-item-has-children a {
+  position: relative;
+}
+header .header_content .nav_holder nav ul li.menu-item-has-children a:after {
+  content: "";
+  background-image: url("../images/icons/triangle.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 11px;
+  height: 8px;
+  position: relative;
+  margin-left: 10px;
+  -webkit-transition: all 400ms ease 0ms;
+  transition: all 400ms ease 0ms;
+}
+header .header_content .nav_holder nav ul li.menu-item-has-children:hover a:after {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+header .header_content .nav_holder nav ul li.menu-item-has-children:hover .sub-menu {
+  display: block;
+}
+header .header_content .nav_holder nav ul li.menu-item-has-children .sub-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  background-color: #3a4d63;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+header .header_content .nav_holder nav ul li.menu-item-has-children .sub-menu:after {
+  content: none;
+}
+header .header_content .nav_holder nav ul li.menu-item-has-children .sub-menu li {
+  margin-bottom: 10px;
+  padding: 0;
+}
+header .header_content .nav_holder nav ul li.menu-item-has-children .sub-menu li:last-of-type {
+  margin-bottom: 0;
+}
+header .header_content .nav_holder nav ul li.menu-item-has-children .sub-menu li a:after {
+  content: none;
 }
 header .header_content .nav_holder nav .shopping_cart {
   display: -webkit-box;
@@ -765,13 +819,20 @@ header .header_content .hamburger span:nth-child(3) {
   background-size: contain;
   background-repeat: no-repeat;
   display: block;
-  width: 11px;
-  height: 8px;
+  width: 9px;
+  height: 7px;
   position: absolute;
   right: -20px;
-  top: 8px;
+  top: 10px;
   -webkit-transition: all 400ms ease 0ms;
   transition: all 400ms ease 0ms;
+}
+@media only screen and (min-width : 768px) {
+  .nav_mobile .nav_mobile_content nav ul li.menu-item-has-children a:after {
+    height: 8px;
+    width: 11px;
+    top: 15px;
+  }
 }
 .nav_mobile .nav_mobile_content nav ul li.menu-item-has-children .sub-menu {
   display: none;
@@ -2513,13 +2574,12 @@ header .header_content .hamburger span:nth-child(3) {
     padding: 48px 90px 80px 90px;
   }
 }
-.template_fundraising_wrap .template_fundraising_content .list_section .list_section_content .single_item {
-  margin-bottom: 47px;
-}
-.template_fundraising_wrap .template_fundraising_content .list_section .list_section_content .single_item:last-child {
-  margin-bottom: 0px;
-}
-.template_fundraising_wrap .template_fundraising_content .list_section .list_section_content .single_item h3 {
+.template_fundraising_wrap .template_fundraising_content .list_section .list_section_content h1,
+.template_fundraising_wrap .template_fundraising_content .list_section .list_section_content h2,
+.template_fundraising_wrap .template_fundraising_content .list_section .list_section_content h3,
+.template_fundraising_wrap .template_fundraising_content .list_section .list_section_content h4,
+.template_fundraising_wrap .template_fundraising_content .list_section .list_section_content h5,
+.template_fundraising_wrap .template_fundraising_content .list_section .list_section_content h6 {
   color: #032549;
   font-size: 18px;
   font-family: 'ProximaNova-Extrabld', sans-serif;
@@ -2527,12 +2587,17 @@ header .header_content .hamburger span:nth-child(3) {
   line-height: 1.26em;
   margin-bottom: 5px;
 }
-.template_fundraising_wrap .template_fundraising_content .list_section .list_section_content .single_item h3:before {
+.template_fundraising_wrap .template_fundraising_content .list_section .list_section_content h1:before,
+.template_fundraising_wrap .template_fundraising_content .list_section .list_section_content h2:before,
+.template_fundraising_wrap .template_fundraising_content .list_section .list_section_content h3:before,
+.template_fundraising_wrap .template_fundraising_content .list_section .list_section_content h4:before,
+.template_fundraising_wrap .template_fundraising_content .list_section .list_section_content h5:before,
+.template_fundraising_wrap .template_fundraising_content .list_section .list_section_content h6:before {
   content: '+';
   position: relative;
   color: #F6A71E;
 }
-.template_fundraising_wrap .template_fundraising_content .list_section .list_section_content .single_item p {
+.template_fundraising_wrap .template_fundraising_content .list_section .list_section_content p {
   color: #383838;
   line-height: 1.4em;
   font-family: 'Lato', sans-serif;
@@ -2540,7 +2605,7 @@ header .header_content .hamburger span:nth-child(3) {
   font-size: 16px;
 }
 @media only screen and (min-width : 768px) {
-  .template_fundraising_wrap .template_fundraising_content .list_section .list_section_content .single_item p {
+  .template_fundraising_wrap .template_fundraising_content .list_section .list_section_content p {
     font-size: 18px;
   }
 }
@@ -2665,7 +2730,9 @@ header .header_content .hamburger span:nth-child(3) {
     font-size: 40px;
   }
 }
-.template_fundraising_wrap .template_fundraising_content .activities_section .single_activity .right .date {
+.template_fundraising_wrap .template_fundraising_content .activities_section .single_activity .right h4,
+.template_fundraising_wrap .template_fundraising_content .activities_section .single_activity .right h5,
+.template_fundraising_wrap .template_fundraising_content .activities_section .single_activity .right h6 {
   margin-bottom: 30px;
   font-size: 16px;
   color: #032549;
@@ -2899,12 +2966,15 @@ header .header_content .hamburger span:nth-child(3) {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-right: 15px;
   -webkit-transition: all 400ms ease 0ms;
   transition: all 400ms ease 0ms;
 }
+.template_members_wrap .template_members_content .single_member_group .members_wrap .single_member .image_holder_wrap .social_icons a:last-child {
+  margin-right: 0px;
+}
 .template_members_wrap .template_members_content .single_member_group .members_wrap .single_member .image_holder_wrap .social_icons a.linkedin {
   background-color: #F6A71E;
-  margin-right: 15px;
 }
 .template_members_wrap .template_members_content .single_member_group .members_wrap .single_member .image_holder_wrap .social_icons a.email {
   background-color: #5C728A;

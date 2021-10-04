@@ -142,7 +142,7 @@ header {
                         }
 
                         &:hover{
-                            a{
+                            > a{
                                 color: @color2;
                             } 
                         }
@@ -162,12 +162,13 @@ header {
                                     background-image: url("../images/icons/triangle.svg");
                                     background-size: contain;
                                     background-repeat: no-repeat;
-                                    display: block;
+                                    display: inline-block;
                                     width: 11px;
                                     height: 8px;
-                                    position: absolute;
-                                    right: -18px;
-                                    top: 8px;
+                                    position: relative;
+                                    // right: -18px;
+                                    margin-left: 10px;
+                                    // top: 8px;
                                     .transition();
                                 }
                             }

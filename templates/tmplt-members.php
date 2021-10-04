@@ -1,5 +1,6 @@
 <?php
 /* Template Name: Members */
+$categorie_de_membre = get_field('categorie_de_membre');
 get_header(); ?>
     <div class="template_members_wrap">
         <div class="global_hero">
@@ -9,244 +10,57 @@ get_header(); ?>
             </div>
             <div class="hero_headline_wrap">
                 <h2 class="hero_headline">
-                    Le Membres
+                    <?php echo get_the_title(); ?>
                 </h2>
             </div>
         </div>
 
         <div class="template_members_content content_wrap">
-            <div class="single_member_group">
-                <h2>Dirigeants du club 4604</h2>
+            <?php if($categorie_de_membre): ?>
+                <?php foreach ($categorie_de_membre as $singleCategory): ?>
+                    <div class="single_member_group">
+                        <h2><?php echo $singleCategory['categorie'] ?></h2>
+                        <?php if($singleCategory['membres']): ?>
+                            <div class="members_wrap">
+                                <?php foreach ($singleCategory['membres'] as $singleMember): ?>
+                                    <div class="single_member">
+                                        <div class="image_holder_wrap">
+                                            <div class="image_holder">
+                                                <?php if($singleMember['image']): ?>
+                                                    <img src="<?php echo $singleMember['image']['url']; ?>" alt="<?php echo $singleMember['image']['alt']; ?>" class="single_member_image">
+                                                <?php else: ?>
+                                                    <img class="no_image_logo" src="<?php echo get_template_directory_uri(); ?>/images/no-post-image-logo.svg" alt="">
+                                                <?php endif; ?>
+                                            </div>
 
-                <div class="members_wrap">
-                    <div class="single_member">
-                        <div class="image_holder_wrap">
-                            <div class="image_holder">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/dev/member.jpg" alt="" class="single_member_image">
-                            </div>
+                                            <div class="social_icons">
+                                                <?php if($singleMember['linkedin']): ?>
+                                                    <a href="<?php echo $singleMember['linkedin']; ?>" class="linkedin">
+                                                        <img src="<?php echo get_template_directory_uri(); ?>/images/icons/linkedin.svg" alt="">
+                                                    </a>
+                                                <?php endif; ?>
+                                                <?php if($singleMember['email']): ?>
+                                                    <a href="<?php echo $singleMember['email']; ?>" class="email">
+                                                        <img src="<?php echo get_template_directory_uri(); ?>/images/icons/email.svg" alt="">
+                                                    </a>
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
 
-                            <div class="social_icons">
-                                <a href="" class="linkedin">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/icons/linkedin.svg" alt="">
-                                </a>
-                                <a href="" class="email">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/icons/email.svg" alt="">
-                                </a>
+                                        <h3>
+                                            <?php echo $singleMember['nom']; ?>
+                                        </h3>
+
+                                        <p>
+                                            <?php echo $singleMember['titre']; ?>
+                                        </p>
+                                    </div>
+                                <?php endforeach ?>
                             </div>
-                        </div>
-                        <h3>
-                            Nancy D'Aoust
-                        </h3>
-                        <p>
-                            Présidente Salaberry-de-Valleyfield
-                        </p>
+                        <?php endif; ?>
                     </div>
-                    <div class="single_member">
-                        <div class="image_holder_wrap">
-                            <div class="image_holder">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/dev/member.jpg" alt="" class="single_member_image">
-                            </div>
-
-                            <div class="social_icons">
-                                <a href="" class="linkedin">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/icons/linkedin.svg" alt="">
-                                </a>
-                                <a href="" class="email">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/icons/email.svg" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <h3>
-                            Nancy D'Aoust
-                        </h3>
-                        <p>
-                            Présidente Salaberry-de-Valleyfield
-                        </p>
-                    </div>
-                    <div class="single_member">
-                        <div class="image_holder_wrap">
-                            <div class="image_holder">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/dev/member.jpg" alt="" class="single_member_image">
-                            </div>
-
-                            <div class="social_icons">
-                                <a href="" class="linkedin">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/icons/linkedin.svg" alt="">
-                                </a>
-                                <a href="" class="email">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/icons/email.svg" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <h3>
-                            Nancy D'Aoust
-                        </h3>
-                        <p>
-                            Présidente Salaberry-de-Valleyfield
-                        </p>
-                    </div>
-                    <div class="single_member">
-                        <div class="image_holder_wrap">
-                            <div class="image_holder">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/dev/member.jpg" alt="" class="single_member_image">
-                            </div>
-
-                            <div class="social_icons">
-                                <a href="" class="linkedin">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/icons/linkedin.svg" alt="">
-                                </a>
-                                <a href="" class="email">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/icons/email.svg" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <h3>
-                            Nancy D'Aoust
-                        </h3>
-                        <p>
-                            Présidente Salaberry-de-Valleyfield
-                        </p>
-                    </div>
-                    <div class="single_member">
-                        <div class="image_holder_wrap">
-                            <div class="image_holder">
-                                <img class="no_image_logo" src="<?php echo get_template_directory_uri(); ?>/images/no-post-image-logo.svg" alt="">
-                            </div>
-
-                            <div class="social_icons">
-                                <a href="" class="linkedin">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/icons/linkedin.svg" alt="">
-                                </a>
-                                <a href="" class="email">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/icons/email.svg" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <h3>
-                            Nancy D'Aoust
-                        </h3>
-                        <p>
-                            Présidente Salaberry-de-Valleyfield
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="single_member_group">
-                <h2>Dirigeants du club 4604</h2>
-
-                <div class="members_wrap">
-                    <div class="single_member">
-                        <div class="image_holder_wrap">
-                            <div class="image_holder">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/dev/member.jpg" alt="" class="single_member_image">
-                            </div>
-
-                            <div class="social_icons">
-                                <a href="" class="linkedin">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/icons/linkedin.svg" alt="">
-                                </a>
-                                <a href="" class="email">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/icons/email.svg" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <h3>
-                            Nancy D'Aoust
-                        </h3>
-                        <p>
-                            Présidente Salaberry-de-Valleyfield
-                        </p>
-                    </div>
-                    <div class="single_member">
-                        <div class="image_holder_wrap">
-                            <div class="image_holder">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/dev/member.jpg" alt="" class="single_member_image">
-                            </div>
-
-                            <div class="social_icons">
-                                <a href="" class="linkedin">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/icons/linkedin.svg" alt="">
-                                </a>
-                                <a href="" class="email">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/icons/email.svg" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <h3>
-                            Nancy D'Aoust
-                        </h3>
-                        <p>
-                            Présidente Salaberry-de-Valleyfield
-                        </p>
-                    </div>
-                    <div class="single_member">
-                        <div class="image_holder_wrap">
-                            <div class="image_holder">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/dev/member.jpg" alt="" class="single_member_image">
-                            </div>
-
-                            <div class="social_icons">
-                                <a href="" class="linkedin">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/icons/linkedin.svg" alt="">
-                                </a>
-                                <a href="" class="email">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/icons/email.svg" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <h3>
-                            Nancy D'Aoust
-                        </h3>
-                        <p>
-                            Présidente Salaberry-de-Valleyfield
-                        </p>
-                    </div>
-                    <div class="single_member">
-                        <div class="image_holder_wrap">
-                            <div class="image_holder">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/dev/member.jpg" alt="" class="single_member_image">
-                            </div>
-
-                            <div class="social_icons">
-                                <a href="" class="linkedin">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/icons/linkedin.svg" alt="">
-                                </a>
-                                <a href="" class="email">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/icons/email.svg" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <h3>
-                            Nancy D'Aoust
-                        </h3>
-                        <p>
-                            Présidente Salaberry-de-Valleyfield
-                        </p>
-                    </div>
-                    <div class="single_member">
-                        <div class="image_holder_wrap">
-                            <div class="image_holder">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/dev/member.jpg" alt="" class="single_member_image">
-                            </div>
-
-                            <div class="social_icons">
-                                <a href="" class="linkedin">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/icons/linkedin.svg" alt="">
-                                </a>
-                                <a href="" class="email">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/icons/email.svg" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <h3>
-                            Nancy D'Aoust
-                        </h3>
-                        <p>
-                            Présidente Salaberry-de-Valleyfield
-                        </p>
-                    </div>
-                </div>
-            </div>
+                <?php endforeach ?>
+            <?php endif; ?>
         </div>
     </div>
 <?php
