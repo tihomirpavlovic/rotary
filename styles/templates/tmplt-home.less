@@ -171,6 +171,10 @@
         margin: auto;
         margin-bottom: 80px;
 
+        a{
+            display: block;
+        }
+
         @media @tablet-s {
             margin-bottom: 95px;
         }
@@ -182,7 +186,11 @@
     }
 
     .cols_section {
-        margin-bottom: 125px;
+        margin-bottom: 90px;
+
+        @media @tablet-s {
+            margin-bottom: 125px;
+        }
 
         .title {
             font-size: 32px;
@@ -363,6 +371,19 @@
 
             @media @laptop-s {
                 text-align: right;
+            }
+
+            a{
+                margin-bottom: 20px;
+
+                @media @tablet-s {
+                    margin-bottom: 0px;
+                    margin-right: 20px;
+                }
+
+                &:last-child{
+                    margin-right: 0px;
+                }
             }
         }
     }
@@ -663,7 +684,7 @@
                     box-sizing: border-box;
                     max-width: calc(100% - 42px);
                     margin: auto;
-                    margin-top: -60px;
+                    margin-top: -90px;
                     min-height: 180px;
                     .transition();
 
@@ -688,14 +709,14 @@
                     h3 {
                         color: #032549;
                         font-size: 20px;
-                        font-family: @fontB;
+                        font-family: @fontEB;
                         letter-spacing: 1px;
                         margin-bottom: 20px;
                         .transition();
 
-                        @media @tablet-s {
-                            margin-bottom: 5px;
-                        }
+                        // @media @tablet-s {
+                        //     margin-bottom: 25px;
+                        // }
                     }
     
                     .date {
@@ -703,6 +724,10 @@
                         font-size: 16px;
                         color: #032549;
                         .transition();
+
+                        @media @tablet-s {
+                            font-size: 16px;
+                        }
                     }
     
                     .opener {

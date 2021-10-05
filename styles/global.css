@@ -1786,6 +1786,9 @@ header .header_content .hamburger span:nth-child(3) {
   margin: auto;
   margin-bottom: 80px;
 }
+.template_home_page_container .image_section a {
+  display: block;
+}
 @media only screen and (min-width : 768px) {
   .template_home_page_container .image_section {
     margin-bottom: 95px;
@@ -1796,7 +1799,12 @@ header .header_content .hamburger span:nth-child(3) {
   vertical-align: bottom;
 }
 .template_home_page_container .cols_section {
-  margin-bottom: 125px;
+  margin-bottom: 90px;
+}
+@media only screen and (min-width : 768px) {
+  .template_home_page_container .cols_section {
+    margin-bottom: 125px;
+  }
 }
 .template_home_page_container .cols_section .title {
   font-size: 32px;
@@ -1980,6 +1988,18 @@ header .header_content .hamburger span:nth-child(3) {
   .template_home_page_container .cols_section .button_holder {
     text-align: right;
   }
+}
+.template_home_page_container .cols_section .button_holder a {
+  margin-bottom: 20px;
+}
+@media only screen and (min-width : 768px) {
+  .template_home_page_container .cols_section .button_holder a {
+    margin-bottom: 0px;
+    margin-right: 20px;
+  }
+}
+.template_home_page_container .cols_section .button_holder a:last-child {
+  margin-right: 0px;
 }
 .template_home_page_container .description_section {
   display: -webkit-box;
@@ -2326,7 +2346,7 @@ header .header_content .hamburger span:nth-child(3) {
           box-sizing: border-box;
   max-width: calc(100% - 42px);
   margin: auto;
-  margin-top: -60px;
+  margin-top: -90px;
   min-height: 180px;
   -webkit-transition: all 400ms ease 0ms;
   transition: all 400ms ease 0ms;
@@ -2350,16 +2370,11 @@ header .header_content .hamburger span:nth-child(3) {
 .template_home_page_container .news_section .news_wrap .single_news .news_info h3 {
   color: #032549;
   font-size: 20px;
-  font-family: 'ProximaNova-Bold', sans-serif;
+  font-family: 'ProximaNova-Extrabld', sans-serif;
   letter-spacing: 1px;
   margin-bottom: 20px;
   -webkit-transition: all 400ms ease 0ms;
   transition: all 400ms ease 0ms;
-}
-@media only screen and (min-width : 768px) {
-  .template_home_page_container .news_section .news_wrap .single_news .news_info h3 {
-    margin-bottom: 5px;
-  }
 }
 .template_home_page_container .news_section .news_wrap .single_news .news_info .date {
   color: #383838;
@@ -2374,6 +2389,11 @@ header .header_content .hamburger span:nth-child(3) {
 @media only screen and (min-width : 768px) {
   .template_home_page_container .news_section .news_wrap .single_news .news_info .date {
     font-size: 18px;
+  }
+}
+@media only screen and (min-width : 768px) {
+  .template_home_page_container .news_section .news_wrap .single_news .news_info .date {
+    font-size: 16px;
   }
 }
 .template_home_page_container .news_section .news_wrap .single_news .news_info .opener {
@@ -3136,7 +3156,7 @@ header .header_content .hamburger span:nth-child(3) {
           box-sizing: border-box;
   max-width: calc(100% - 42px);
   margin: auto;
-  margin-top: -60px;
+  margin-top: -90px;
   min-height: 180px;
   -webkit-transition: all 400ms ease 0ms;
   transition: all 400ms ease 0ms;
@@ -3160,16 +3180,11 @@ header .header_content .hamburger span:nth-child(3) {
 .template_news_wrap .template_news_content .news_wrap .single_news .news_info h3 {
   color: #032549;
   font-size: 20px;
-  font-family: 'ProximaNova-Bold', sans-serif;
+  font-family: 'ProximaNova-Extrabld', sans-serif;
   letter-spacing: 1px;
   margin-bottom: 20px;
   -webkit-transition: all 400ms ease 0ms;
   transition: all 400ms ease 0ms;
-}
-@media only screen and (min-width : 768px) {
-  .template_news_wrap .template_news_content .news_wrap .single_news .news_info h3 {
-    margin-bottom: 5px;
-  }
 }
 .template_news_wrap .template_news_content .news_wrap .single_news .news_info .date {
   color: #383838;
@@ -3184,6 +3199,11 @@ header .header_content .hamburger span:nth-child(3) {
 @media only screen and (min-width : 768px) {
   .template_news_wrap .template_news_content .news_wrap .single_news .news_info .date {
     font-size: 18px;
+  }
+}
+@media only screen and (min-width : 768px) {
+  .template_news_wrap .template_news_content .news_wrap .single_news .news_info .date {
+    font-size: 16px;
   }
 }
 .template_news_wrap .template_news_content .news_wrap .single_news .news_info .opener {

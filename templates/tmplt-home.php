@@ -3,6 +3,10 @@
 $rencontres_hebdomadaires = get_field('rencontres_hebdomadaires');
 $notre_mission = get_field('notre_mission');
 $spaghetti_des_regates = get_field('spaghetti_des_regates');
+$boutons_de_heros = get_field('boutons_de_heros');
+$calendrier_section = get_field('calendrier_section');
+$actualite_bouton = get_field('actualite_bouton');
+$spaghetti_des_regates_link = get_field('spaghetti_des_regates_link');
 get_header(); ?>
     <div class="template_home_page_container">
         <section class="hero_section">
@@ -11,11 +15,17 @@ get_header(); ?>
             <div class="content">
                 <h1 class="title">Club Rotary<br>Salaberry-de-Valleyfield</h1>
                 <h2 class="subtitle">Servir d’abord</h2>
-
+                
+                <?php if($boutons_de_heros): ?>
                 <div class="buttons">
-                    <a href="" class="button">Explorez nos actions</a>
-                    <a href="" class="button">Nous joindre</a>
+                    <?php if($boutons_de_heros['first_bouton']): ?>
+                    <a href="<?php echo $boutons_de_heros['first_bouton']['url']; ?>" class="button" target="<?php echo $boutons_de_heros['first_bouton']['target']; ?>"><?php echo $boutons_de_heros['first_bouton']['title']; ?></a>
+                    <?php endif; ?>
+                    <?php if($boutons_de_heros['second_bouton']): ?>
+                    <a href="<?php echo $boutons_de_heros['second_bouton']['url']; ?>" class="button" target="<?php echo $boutons_de_heros['second_bouton']['target']; ?>"><?php echo $boutons_de_heros['second_bouton']['title']; ?></a>
+                    <?php endif; ?>
                 </div>
+                <?php endif; ?>
             </div>
         </section>
 
@@ -28,17 +38,19 @@ get_header(); ?>
         <?php endif; ?>
 
         <?php if( $spaghetti_des_regates ): $spaghetti_des_regates = get_img_by_id($spaghetti_des_regates); ?>
-            <section class="image_section content_wrap">
-                <img src="<?php echo $spaghetti_des_regates['url'] ?>" alt="<?php echo $spaghetti_des_regates['alt'] ?>">
-            </section>
+            <a href="<?php echo $spaghetti_des_regates_link ?>" target="_blank">
+                <section class="image_section content_wrap">
+                    <img src="<?php echo $spaghetti_des_regates['url'] ?>" alt="<?php echo $spaghetti_des_regates['alt'] ?>">
+                </section>
+            </a>
         <?php endif; ?>
 
         <?php
         $events = new WP_Query(array(
             'post_type' => 'mec-events',
             'posts_per_page' => 2,
-            // 'order_by' => 'start_date',
-            // 'order' => 'DESC',
+            'order_by' => 'start_date',
+            'order' => 'ASC',
             'post_status' => array('publish'),
         ));
 
@@ -53,13 +65,16 @@ get_header(); ?>
 
                             // var_dump($myvals, 'mec_start_date');
 
-                            // foreach($myvals as $key=>$val){
-                            //     foreach($val as $vals){
-                            //       if ($key=='mec_start_date'){
-                            //          echo $vals;
-                            //       }
-                            //      }
-                            //    }
+                            foreach($myvals as $key=>$val){
+                                foreach($val as $vals){
+                                  if ($key=='mec_start_date'){
+                                    $time=strtotime($vals);
+                                    $month=date("F",$time);
+                                    $year=date("Y",$time);
+                                    $day=date("d",$time);
+                                  }
+                                 }
+                               }
                         ?>
                             <div class="col">
                                 <div class="image_holder">
@@ -70,9 +85,9 @@ get_header(); ?>
 
                                     <div class="date">
                                         <?php echo $startday; ?>
-                                        <p class="day"><?php echo get_the_date('j'); ?></p>
-                                        <p class="month"><?php echo get_the_date('F'); ?></p>
-                                        <p class="year"><?php echo get_the_date('Y'); ?></p>
+                                        <p class="day"><?php echo $day; ?></p>
+                                        <p class="month"><?php echo $month; ?></p>
+                                        <p class="year"><?php echo $year; ?></p>
                                     </div>
                                     <div class="info">
                                         <h2 class="post_title"><?php the_title(); ?></h2>
@@ -90,9 +105,20 @@ get_header(); ?>
                         <?php endwhile; ?>
                     </div>
 
-                    <div class="button_holder">
-                        <a href="" class="button dark">Voir le calendrier</a>
-                    </div>
+                    <!-- <div class="button_holder">
+                        <a href="/calendrier" class="button dark">Voir le calendrier</a>
+                    </div> -->
+
+                    <?php if($calendrier_section): ?>
+                        <div class="button_holder">
+                            <?php if($calendrier_section['first_bouton']): ?>
+                            <a href="<?php echo $calendrier_section['first_bouton']['url']; ?>" class="button dark" target="<?php echo $calendrier_section['first_bouton']['target']; ?>"><?php echo $calendrier_section['first_bouton']['title']; ?></a>
+                            <?php endif; ?>
+                            <?php if($calendrier_section['first_bouton']): ?>
+                            <a href="<?php echo $calendrier_section['second_bouton']['url']; ?>" class="button dark" target="<?php echo $calendrier_section['second_bouton']['target']; ?>"><?php echo $calendrier_section['second_bouton']['title']; ?></a>
+                            <?php endif; ?>
+                        </div>    
+                    <?php endif; ?>
                 </div>
             </section>
         <?php endif; ?>
@@ -152,10 +178,11 @@ get_header(); ?>
                 <div class="news_wrap">
                    <?php print_posts($news); ?>
                 </div>
-
+                <?php if($actualite_bouton): ?>
                 <div class="button_holder">
-                    <a href="" class="button dark">Lire davantage</a>
+                    <a href="<?php echo $actualite_bouton['url']; ?>" target="<?php echo $actualite_bouton['target']; ?>" class="button dark"><?php echo $actualite_bouton['title']; ?></a>
                 </div>
+                <?php endif ?>
             </section>
         <?php endif; ?>
     </div>

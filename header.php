@@ -10,19 +10,25 @@
 </head>
 
 <body <?php body_class(); ?>>
+    <?php $top_menu = get_field('top_menu', 'option'); ?>
     <header>
         <div class="header_content">
             <div class="logo_wraper">
                 <a href="<?php echo get_home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/site-logo.svg" alt="Site Logo"></a>
             </div>
             <div class="nav_holder">
+                <?php if($top_menu): ?>
                 <div class="cta">
-                    <a href="" class="cta_link">Actualité</a>
-                    
+                    <?php if($top_menu['first_link']): ?>
+                        <a href="<?php echo $top_menu['first_link']['url'] ?>" target="<?php echo $top_menu['first_link']['target'] ?>" class="cta_link"><?php echo $top_menu['first_link']['title'] ?></a>
+                    <?php endif; ?>
+                    <?php if($top_menu['second_link']): ?>
                     <div class="button_holder">
-                        <a class="button" href="#">Accès membre</a>
+                        <a href="<?php echo $top_menu['second_link']['url'] ?>" target="<?php echo $top_menu['second_link']['target'] ?>" class="button"><?php echo $top_menu['second_link']['title'] ?></a>
                     </div>
+                    <?php endif; ?>
                 </div>
+                <?php endif; ?>
 
                 <?php if( has_nav_menu('menu-1') ): ?>
                     <nav>

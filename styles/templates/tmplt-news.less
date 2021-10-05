@@ -129,7 +129,7 @@
                     box-sizing: border-box;
                     max-width: calc(100% - 42px);
                     margin: auto;
-                    margin-top: -60px;
+                    margin-top: -90px;
                     min-height: 180px;
                     .transition();
 
@@ -154,14 +154,14 @@
                     h3 {
                         color: #032549;
                         font-size: 20px;
-                        font-family: @fontB;
+                        font-family: @fontEB;
                         letter-spacing: 1px;
                         margin-bottom: 20px;
                         .transition();
 
-                        @media @tablet-s {
-                            margin-bottom: 5px;
-                        }
+                        // @media @tablet-s {
+                        //     margin-bottom: 25px;
+                        // }
                     }
 
                     .date {
@@ -169,6 +169,10 @@
                         font-size: 16px;
                         color: #032549;
                         .transition();
+
+                        @media @tablet-s {
+                            font-size: 16px;
+                        }
                     }
 
                     .opener {
