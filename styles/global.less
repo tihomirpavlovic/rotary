@@ -84,6 +84,12 @@ body {
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
 
+    &.logged-in {
+        header {
+            top: 32px;
+        }
+    }
+
     * {
         font-weight: normal;
     }
@@ -317,10 +323,10 @@ body {
 }
 
 .text{
+    .fontR();
     color: #383838;
     font-size: 16px;
     line-height: 1.4em;
-    .fontR();
 
     @media @tablet-s {
         font-size: 18px;

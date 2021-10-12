@@ -139,19 +139,22 @@
                         }
                     }
 
-                    h3{
-                        color: #032549;
+                    h3 {
+                        color: @color1;
                         font-size: 20px;
                         font-family: @fontEB;
                         letter-spacing: 1px;
                         margin-bottom: 5px;
                     }
 
-                    p{
+                    p {
                         .text();
-                        font-size: 16px;
+                        color: @color1;
+
+                        @media @tablet-s {
+                            font-size: 16px;
+                        }
                     }
-                    
                 }
             }
         }

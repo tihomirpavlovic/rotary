@@ -25,12 +25,12 @@ get_header(); ?>
 
                                             <div class="social_icons">
                                                 <?php if($singleMember['linkedin']): ?>
-                                                    <a href="<?php echo $singleMember['linkedin']; ?>" class="linkedin">
+                                                    <a href="<?php echo $singleMember['linkedin']; ?>" target="_blank" class="linkedin">
                                                         <img src="<?php echo get_template_directory_uri(); ?>/images/icons/linkedin.svg" alt="">
                                                     </a>
                                                 <?php endif; ?>
                                                 <?php if($singleMember['email']): ?>
-                                                    <a href="<?php echo $singleMember['email']; ?>" class="email">
+                                                    <a href="<?php echo $singleMember['email']; ?>" target="_blank" class="email">
                                                         <img src="<?php echo get_template_directory_uri(); ?>/images/icons/email.svg" alt="">
                                                     </a>
                                                 <?php endif; ?>

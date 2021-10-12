@@ -3,7 +3,12 @@ function template_section_hero( $data = [] ) {
     $image = get_field('desktop');
     $tablet_image = get_field('tablet');
     $mobile_image = get_field('mobile');
-    $title = get_the_title(); ?>
+    $title = get_the_title();
+
+    if( is_single() ) {
+        $title = 'Actualités';
+    }
+    ?>
     <section class="template_section_hero">
         <img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/wheel.svg" alt="">
 

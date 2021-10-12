@@ -30,11 +30,6 @@
                 line-height: 50px;
             }
 
-            @media @desktop-m {
-                font-size: 62px;
-                line-height: 60px;
-            }
-
             @media @tablet-s {
                 margin-bottom: 60px;
             }
@@ -143,6 +138,7 @@
                 .social_media {
                     width: 100%;
                     display: flex;
+                    justify-content: center;
 
                     @media @tablet-s {
                         width: auto;
@@ -316,6 +312,10 @@
         font-family: @fontR;
         font-size: 14px;
         line-height: 16.41px;
+
+        a {
+            color: inherit;
+        }
 
         @media @tablet-s {
             padding-top: 36px;

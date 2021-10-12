@@ -77,7 +77,7 @@
         </div>
     </div>
 
-    <p class="copyright">© 2021 - Club Rotary Salaberry-de-Valleyfield - Une signature de Zel</p>
+    <p class="copyright">© 2021 - Club Rotary Salaberry-de-Valleyfield - Une signature de <a href="https://agencezel.com/" target="_blank">Zel</a></p>
 </footer>
 
 <?php wp_footer(); ?>
