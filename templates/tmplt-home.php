@@ -62,16 +62,19 @@ get_header(); ?>
                         <?php while ( $events->have_posts() ): $events->the_post();
                             $categories = get_the_terms(get_the_ID(), 'mec_category');
                             $myvals = get_post_meta(get_the_ID());
-
+                            setlocale(LC_TIME, "fr_FR");
                             // var_dump($myvals, 'mec_start_date');
 
                             foreach($myvals as $key=>$val){
                                 foreach($val as $vals){
                                   if ($key=='mec_start_date'){
-                                    $time=strtotime($vals);
-                                    $month=date("F",$time);
-                                    $year=date("Y",$time);
-                                    $day=date("d",$time);
+                                    $time = strftime("%d %B, %Y", strtotime($vals));
+                                    $regulartime = strtotime($vals);
+                                    $month=date("m",$regulartime);
+                                    $year=date("Y",$regulartime);
+                                    $day=date("d",$regulartime);
+
+                                    $month = strftime('%B', mktime(0, 0, 0, $month));
                                   }
                                  }
                                }

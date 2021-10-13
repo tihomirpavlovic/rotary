@@ -3,6 +3,9 @@
 $texte_dintroduction = get_field('texte_dintroduction');
 $organismes = get_field('organismes');
 $principales_activites = get_field('principales_activites');
+$levees_de_fonds_headline = get_field('levees_de_fonds_headline');
+$levees_de_fonds_description = get_field('levees_de_fonds_description');
+
 get_header(); ?>
     <div class="template_fundraising_wrap">
         <?php template_section_hero(); ?>
@@ -72,26 +75,13 @@ get_header(); ?>
             </div>
 
             <div class="past_fundriser">
-                <h2>Levées de fonds passées</h2>
+                <?php if($levees_de_fonds_headline): ?>
+                    <h2><?php echo $levees_de_fonds_headline; ?></h2>
+                <?php endif; ?>
 
-                <div class="single_fundriser">
-                    <h3>Le Pizzaghetti, en collaboration avec le restaurant Mikes </h3>
-                    <p>
-                        2000-2010
-                    </p>
-                </div>
-                <div class="single_fundriser">
-                    <h3>Le Pizzaghetti, en collaboration avec le restaurant Mikes </h3>
-                    <p>
-                        2000-2010
-                    </p>
-                </div>
-                <div class="single_fundriser">
-                    <h3>Le Pizzaghetti, en collaboration avec le restaurant Mikes </h3>
-                    <p>
-                        2000-2010
-                    </p>
-                </div>
+                <?php if($levees_de_fonds_description): ?>
+                    <?php echo $levees_de_fonds_description; ?>
+                <?php endif; ?>
             </div>
         </div>
     </div>
