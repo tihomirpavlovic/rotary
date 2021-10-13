@@ -80,6 +80,7 @@ foreach (new DirectoryIterator(get_stylesheet_directory().'/templates-sections/'
 function posts_filter(){
     $filtered_cat = $_POST['category'];
     $filtered_page = $_POST['page'];
+    $is_load_more = $_POST['loadMore'];
 
     $args = array(
         'post_type' => 'actualites',
@@ -111,7 +112,7 @@ function print_posts($query){
         $date = get_field('date');
         $image = get_field('image');
     ?>
-        <a href="<?php the_permalink(); ?>" class="single_news">
+        <a href="<?php the_permalink(); ?>" class="single_news ajax_post" data-total-posts="<?php echo $query->found_posts; ?>">
             <div class="image_holder">
                 <?php if( $image ): $image = get_img_by_id($image); ?>
                     <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">

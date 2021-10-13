@@ -17,13 +17,13 @@ $filtered_cat = ( isset($_GET["catégorie"]) ) ? $_GET["catégorie"] : "";
             if( $field ):?>
                 <div class="filters_holder" id="nouvelles">
                     <div class="filter_wrap">
-                        <a href="<?php the_permalink(); ?>#nouvelles" class="single_item <?php echo ( !$filtered_cat ) ? ' active' : null; ?>">
+                        <div class="single_item <?php echo ( !$filtered_cat ) ? ' active' : null; ?>">
                             <p>Tous</p>
-                        </a>
+                        </div>
                         <?php foreach( $field['choices'] as $key => $value ): ?>
-                            <a href="<?php the_permalink(); ?>?catégorie=<?php echo $key; ?>#nouvelles" class="single_item <?php echo ( $filtered_cat == $key ) ? ' active' : null; ?>">
+                            <div data-category="<?php echo $key; ?>" class="single_item <?php echo ( $filtered_cat == $key ) ? ' active' : null; ?>">
                                 <p><?php echo $value; ?></p>
-                            </a>
+                            </div>
                         <?php endforeach; ?>
                     </div>
                 </div>
@@ -59,7 +59,7 @@ $filtered_cat = ( isset($_GET["catégorie"]) ) ? $_GET["catégorie"] : "";
                 </div>
 
                 <div class="button_holder">
-                    <button class="button dark load_more_btn <?php echo ( $posts_per_page >= $news->found_posts ) ? ' disabled' : null; ?>" data-total-posts="<?php echo $news->found_posts; ?>" data-category="<?php echo $filtered_cat; ?>">
+                    <button class="button dark load_more_btn <?php echo ( $posts_per_page >= $news->found_posts ) ? ' disabled' : null; ?>" data-total-posts="<?php echo $news->found_posts; ?>" data-category="<?php echo $filtered_cat; ?>" data-load-more="1">
                         Plus d’articles
                     </button>
                 </div>

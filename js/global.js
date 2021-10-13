@@ -14,50 +14,75 @@
         $(this).toggleClass('active').children("ul").slideToggle();
     });
 
-    //Posts filter - Load more
+    //Posts AJAX filter
     if( $('.template_news_wrap').length ) {
         var loadMoreBtn = $('.load_more_btn');
         var responseDiv = document.getElementById('response');
         var page = 1;
+        var postsPerPage = 3;
+        var totalPosts = parseInt(loadMoreBtn.data('total-posts'));
 
         $('.filter_wrap .single_item').on('click', function(){
             $('.filter_wrap .single_item').removeClass('active');
             $(this).addClass("active");
         });
 
-        loadMoreBtn.on('click', function () {
-            var category = loadMoreBtn.data('category');
-            var totalPosts = parseInt($(this).data('total-posts'));
+        $('.single_item, .load_more_btn').on('click', function () {
+            var category = $('.single_item.active').data('category');
+            var isLoadMore = ( $(this).hasClass('load_more_btn') );
+
+            if( isLoadMore ) {
+                page+=1;
+            } else {
+                page = 1;
+            }
+
+            const url = new URL(location);
+
+            if( category == undefined) {
+                url.searchParams.delete('catégorie');
+            } else {
+                url.searchParams.set('catégorie', category);
+            }
+            history.replaceState(null, null, url);
+
 
             $.ajax({
                 url: $('#response').data('action'),
                 data: {
                     action: 'postsfilter',
-                    page: page+=1,
-                    category: category
+                    loadMore: isLoadMore,
+                    page: page,
+                    category: category,
                 }, // form data
                 type: 'POST', // POST
                 beforeSend: function (xhr) {},
                 success: function (data) {
-                    if( data.length > 100 ) {
+                    if( isLoadMore && data.length > 100 ) {
                         responseDiv.innerHTML += data;
 
                         $([document.documentElement, document.body]).animate({
                             // scrollTop: $(document).scrollTop() + $('#response').height()
                             scrollTop: $(document).scrollTop() + 400
                         }, 1000);
+                    } else {
+                        responseDiv.innerHTML = data;
                     }
                 },
                 complete: function (xhr, status) {
+                    totalPosts = parseInt($('.ajax_post').data('total-posts'));
+
                     if ( $('.single_news').length >= totalPosts ) {
                         loadMoreBtn.addClass('disabled');
+                    } else {
+                        loadMoreBtn.removeClass('disabled');
                     }
                 }
             });
             return false;
         });
     }
-    //Posts filter - Load more - END
+    //Posts AJAX filter - END
 
     $('.single_accordion').on('click', function(event) {
         $(this).toggleClass('active');
